@@ -1,47 +1,48 @@
 // ┌────────────────────────────────────────────────────────────────────┐
 // | Toolbar.js
 // └────────────────────────────────────────────────────────────────────┘
-define(['backbone', 'jqueryUiDraggable', 'models/ToolbarModel'],
+define(['backbone', 'jqueryUiDraggable', 'models/Toolbar'],
 	function(Backbone, draggable, ToolbarModel){
 		var Toolbar = Backbone.View.extend({
 			events: {
-				'mousedown #fontSelector > ul > li > a' : 'selectFamily',
+				'mousedown #fontSelector > ul > li > a' : 'selectFont',
 				'mousedown #weightSelector > ul > li > a' : 'selectWeight'
 			},
 			model: new ToolbarModel(),
 			el: '#toolbar',
-			initialize: function(data){
-				_.extend(this, data);
-				this.model.on('change:font', this.getFontWeights, this);
-				this.$('.dragger').draggable({
-					axis: "x",
-					containment: "parent",
-					drag: _.bind(this.setSlider,this)
-				});
+			initialize: function(){
+				App.Collections.Fonts.on('add', this.addFont, this);
+				App.model.on('change:fonts', this.setDefault, this);
+				this.$('.dragger').draggable({ axis: "x", containment: "parent", drag: _.bind(this.model.setSlider,this.model) });
 			},
-			setSlider: function(e, ui){
-				var target = $(e.target);
-				var modelAttr = $(e.target).data('attr');
-				var range = $(e.target).data('range');
-				var val = (ui.position.left)/(target.parent().width() - target.width());
-				this.model.set(modelAttr, Math.floor(range * val) + 12);
+			addFont: function(font){
+				var fontPartial = _.template(App.model.get('fontPartial'));
+				var fontElement = fontPartial({data: font.toJSON()});
+				$(fontElement).appendTo('#fontList');
 			},
-			selectFamily: function(e){
+			setDefault: function(model){
+				this.setFont(model.get('defFont'));
+			},
+			selectFont: function(e){
 				e.preventDefault();
-				var fontName = $(e.currentTarget).data('name');
-				this.model.set('font', fontName);
+				this.model.set('font', $(e.currentTarget).data('name'));
+				this.setFont($(e.currentTarget).data('name'));
+			},
+			setFont: function(fontHash){
+				var font = App.Collections.Fonts.find(function(m){
+					if(m.get('weights').length) return (m.get('hash') == fontHash);
+				});
+				if(!font) return alert('* Font is not avaialbe in prototype');
+				var weights = font.get('weights');
+				var defWeight = font.get('defWeight');
+				font.loadFont(fontHash);
+				var weightPartial = _.template(App.model.get('weightPartial'));
+				var partial = weightPartial({data: weights.toJSON()});
+				this.$('#weightList').html(partial);
 			},
 			selectWeight: function(e){
 				e.preventDefault();
-				var weightName = $(e.currentTarget).data('name');
-				this.model.set('weight', weightName);
-			},
-			getFontWeights: function(model){
-				var font = App.Collections.Fonts.find(function(m){ return (m.get('name') == model.get('font')); });
-				if(!font) return alert('* Font is not avaialbe in prototype');
-				var weights = font.get('weights');
-				var partial = this.weight_partial({data: weights.toJSON()});
-				this.$('#weightSelector > ul').html(partial);
+				this.model.set('weight', $(e.currentTarget).data('name'));
 			}
 		});
 		return Toolbar;

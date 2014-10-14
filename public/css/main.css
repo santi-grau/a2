@@ -144,6 +144,9 @@ body {
 #toolbar > li.dropdown ul li a.unavailable div {
   font-style: italic;
 }
+#toolbar > li.dropdown ul li a.unavailable div:after {
+  content: " *";
+}
 #toolbar #fontSelector {
   width: 211px;
   margin-right: 14px;

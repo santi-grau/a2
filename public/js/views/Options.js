@@ -50,8 +50,10 @@ define(['backbone', 'color'],
 				circle.removeClass('dragging')
 			},
 			toggleBackground: function(){
-				$('#content').toggleClass('invert');
-				window.App.Views.Editor.toggleColors();
+				var toolbarModel = window.App.Models.Toolbar;
+				toolbarModel.set('inverted', !toolbarModel.get('inverted'));
+				// $('#content').toggleClass('invert');
+				// window.App.Views.Editor.toggleColors();
 			},
 			toggleColor: function(e){
 				e.preventDefault();

@@ -62,88 +62,10 @@ html
       ul(id="toolbar", class="clearfix")
         li(id="fontSelector", class="dropdown")
           a(href="javascript:void(0)") Select font
-          ul
-            li
-              a(href="javascript:void(0)", data-name="boing", class="unavailable")
-                div Boing *
-            li
-              a(href="javascript:void(0)", data-name="regular")
-                div Regular
-            li
-              a(href="javascript:void(0)", data-name="newRailAlphabet", class="unavailable")
-                div New Rail Alphabet *
-            li
-              a(href="javascript:void(0)", data-name="grot10", class="unavailable")
-                div Grot 10 *
-            li
-              a(href="javascript:void(0)", data-name="London", class="unavailable")
-                div London *
-            li
-              a(href="javascript:void(0)", data-name="battersea", class="unavailable")
-                div Battersea *
-            li
-              a(href="javascript:void(0)", data-name="klampenborg", class="unavailable")
-                div Klampenborg *
-            li
-              a(href="javascript:void(0)", data-name="recognition", class="unavailable")
-                div Recognition *
-            li
-              a(href="javascript:void(0)", data-name="newGrotesk", class="unavailable")
-                div New Grotesk! *
-            li
-              a(href="javascript:void(0)", data-name="italianSans", class="unavailable")
-                div Italian Sans *
-            li
-              a(href="javascript:void(0)", data-name="dane", class="unavailable")
-                div Dane *
-            li
-              a(href="javascript:void(0)", data-name="antwerp")
-                div Antwerp
-            li
-              a(href="javascript:void(0)", data-name="fm", class="unavailable")
-                div FM *
-            li
-              a(href="javascript:void(0)", data-name="outsiders", class="unavailable")
-                div Outsiders *
-            li
-              a(href="javascript:void(0)", data-name="typewriter")
-                div Typewriter
-            li
-              a(href="javascript:void(0)", data-name="kunstuff", class="unavailable")
-                div Kunstuff *
-            li
-              a(href="javascript:void(0)", data-name="vogueFloral", class="unavailable")
-                div Vogue Floral *
-            li
-              a(href="javascript:void(0)", data-name="monday", class="unavailable")
-                div Monday *
-            li
-              a(href="javascript:void(0)", data-name="vogueParis", class="unavailable")
-                div Vogue Paris *
-            li
-              a(href="javascript:void(0)", data-name="signature", class="unavailable")
-                div Signature *
-            li
-              a(href="javascript:void(0)", data-name="aveny-t", class="unavailable")
-                div Aveny-T *
-            li
-              a(href="javascript:void(0)", data-name="a2Becket", class="unavailable")
-                div A2 BEckett *
-            li
-              a(href="javascript:void(0)", data-name="eyesLie", class="unavailable")
-                div Eyes Lies *
-            li
-              a(href="javascript:void(0)", data-name="cwm", class="unavailable")
-                div CWM *
-            li
-              a(href="javascript:void(0)", data-name="ergonomics", class="unavailable")
-                div Ergonomics *
-            li
-              a(href="javascript:void(0)", data-name="cphTram", class="unavailable")
-                div Cph. Tram *
+          ul#fontList
         li(id="weightSelector", class="dropdown")
-          a(href="javascript:void(0)") Weight
-          ul
+          a(href="javascript:void(0)") Weight / Style
+          ul#weightList
         li(id="sizeSelector",class="slider")
           span Size
           div(class="dragger",data-attr="size",data-range="160")
@@ -163,4 +85,3 @@ html
           a(href="javascript:void(0)",id="buy")
           a(href="javascript:void(0)",id="invert")
     script(src='js/libs/requirejs/require.js', data-main='js/main.js')
-    

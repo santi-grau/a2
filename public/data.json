@@ -1,0 +1,378 @@
+[
+	{
+		"name" : "Battersea",
+		"hash" : "battersea",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Boing",
+		"hash" : "boing",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Dane",
+		"hash" : "dane",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Grot 10",
+		"hash" : "grot10",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Italian Sans",
+		"hash" : "italiansans",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Klampenborg",
+		"hash" : "klampenborg",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "London",
+		"hash" : "london",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "New Grotesk!",
+		"hash" : "newgrotesk",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "New Rail Alphabet",
+		"hash" : "newrailalphabet",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Recognition",
+		"hash" : "recognition",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Regular",
+		"hash" : "regular",
+		"weights" : [
+			{
+				"name" : "Light",
+				"hash" : "light"
+			},
+			{
+				"name" : "Light Italic",
+				"hash" : "light_italic"
+			},
+
+			{
+				"name" : "Regular",
+				"hash" : "regular"
+			},
+			{
+				"name" : "Regular Italic",
+				"hash" : "regular_italic"
+			},
+			{
+				"name" : "Medium",
+				"hash" : "medium"
+			},
+			{
+				"name" : "Medium Italic",
+				"hash" : "medium_italic"
+			},
+			{
+				"name" : "SemiBold",
+				"hash" : "semibold"
+			},
+			{
+				"name" : "SemiBold Italic",
+				"hash" : "semibold_italic"
+			},
+			{
+				"name" : "Bold",
+				"hash" : "bold"
+			},
+			{
+				"name" : "Bold Italic",
+				"hash" : "bold_italic"
+			},
+			{
+				"name" : "ExtraBold",
+				"hash" : "extrabold_italic"
+			},
+			{
+				"name" : "ExtraBold Italic",
+				"hash" : "extrabold_italic"
+			},
+			{
+				"name" : "Black",
+				"hash" : "black_italic"
+			},
+			{
+				"name" : "Black Italic",
+				"hash" : "black_italic"
+			}
+		],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : "extrabold_italic"
+	},
+	{
+		"name" : "Antwerp",
+		"hash" : "antwerp",
+		"weights" : [
+			{
+				"name" : "Light",
+				"hash" : "light"
+			},
+			{
+				"name" : "Light Italic",
+				"hash" : "light_italic"
+			},
+			{
+				"name" : "Regular",
+				"hash" : "regular"
+			},
+			{
+				"name" : "Regular Italic",
+				"hash" : "regular_italic"
+			},
+			{
+				"name" : "Medium",
+				"hash" : "medium"
+			},
+			{
+				"name" : "Medium Italic",
+				"hash" : "medium_italic"
+			},
+			{
+				"name" : "SemiBold",
+				"hash" : "semibold"
+			},
+			{
+				"name" : "SemiBold Italic",
+				"hash" : "semibold_italic"
+			},
+			{
+				"name" : "Bold",
+				"hash" : "bold"
+			},
+			{
+				"name" : "Bold Italic",
+				"hash" : "bold_italic"
+			}
+		],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : "light_italic"
+	},
+	{
+		"name" : "FM",
+		"hash" : "fm",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Kunstuff",
+		"hash" : "outsiders",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Monday",
+		"hash" : "monday",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Outsiders",
+		"hash" : "boing",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Vogue Floral",
+		"hash" : "vogueflorar",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Vogue Paris",
+		"hash" : "vogueparis",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Signature",
+		"hash" : "signature",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "A2 BEckett",
+		"hash" : "a2Becket",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Aveny-T",
+		"hash" : "avenyt",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Cph. Tram",
+		"hash" : "cphtram",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "CWM",
+		"hash" : "cwm",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Ergonomics",
+		"hash" : "ergonomics",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Eyes Lies",
+		"hash" : "eyeslie",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Outsiders",
+		"hash" : "outsiders",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	},
+	{
+		"name" : "Typewriter",
+		"hash" : "typewriter",
+		"weights" : [
+			{
+				"name" : "Regular",
+				"hash" : "regular"
+			},
+			{
+				"name" : "Regular Italic",
+				"hash" : "regular_italic"
+			},
+			{
+				"name" : "Medium",
+				"hash" : "medium"
+			},
+			{
+				"name" : "Medium Italic",
+				"hash" : "medium_italic"
+			},
+			{
+				"name" : "Bold",
+				"hash" : "bold"
+			},
+			{
+				"name" : "Bold Italic",
+				"hash" : "bold_italic"
+			}
+		],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : "medium"
+	},
+	{
+		"name" : "Flowers",
+		"hash" : "flowers",
+		"weights" : [],
+		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(255, 0, 220)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight any","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(255, 50, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buybut.png"}},{"value":" that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+		"defSize" : 141,
+		"defHeight" : 120,
+		"defWeight" : null
+	}
+]

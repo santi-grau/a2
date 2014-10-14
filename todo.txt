@@ -1,0 +1,45 @@
+
+* Changed weight menu title to “weight / style”
+* Font weights and families ordered as in menu (font families per category) and weights in ascending order -> Anyway this is just a prototype, you will be able to add, delete and set order for fonts and weights on the panel I will build for uploading.
+
+
+
+
+I noticed that kerning is off on the fonts in the type tester, any way of switching kerning on?
+
+
+Colour wheel:
+Can you add the black + white in the colour spectrum, I am not too keen on the white and black dots.
+
+Front page test:
+Please keep the colours in the pdf: brown colour not orange.
+
+Buy button:
+Can you lower this so that it is centered as in pdf.
+
+Buy button:
+Can you show what happens when I highlight a font and click on ‘buy’ please. Go to the fonts individual page.
+
+Negative [A] button:
+Can you change the background to black only not invert the colour of the font(s) please.
+
+Front page text:
+Can this re-flow if user change the size?
+
+Change size of highlighted font:
+Is it possible to highlight a piece of text and have it in a different point size so that the user can compare for example a headline with a piece of body copy text?
+
+Select font menu:
+Like in InDesign Character panel (font menu): First page: Select font / Weight = perfect! –  once the user has selected a font and weight then this is what is displayed in the menu, is that possible?
+
+Mobile:
+We did a quick test on an iPhone. Can you make sure the type tester scale to the screen size when user click on (our site does it at the moment). Also: the size / line spacing navigation doesn’t seem to work on mobile.
+
+Note 1:
+I copied and pasted a random text straight into the tester and sometimes it doesn’t work / allow me to select a font to render the text in, other times it works! Can you perhaps make it so that any text copied and pasted into the tester has a default ‘no inherited values attached’?  
+
+Note 2: 
+If I paste, as an example 2 pages of text into the type tester then I get a scroll bar at the right hand side of the tester (not the browser). It doesn’t look so good, can we avoid this?
+
+Invoice:
+Please send an invoice. Make sure all of your bank details are on this including Tax number.

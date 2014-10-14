@@ -11,6 +11,7 @@ define(['backbone', 'quill', 'color'],
 				window.App.Views.Toolbar.model.on('change:color', this.setColor, this);
 				window.App.Views.Toolbar.model.on('change:size', this.setSize, this);
 				window.App.Views.Toolbar.model.on('change:height', this.setHeight, this);
+				window.App.Models.Toolbar
 				this.range = {};
 				this.quill = new Quill('#editor',{
 					styles: {
@@ -114,20 +115,17 @@ define(['backbone', 'quill', 'color'],
 				}
 			},
 			toggleColors: function(){
-				this.oldops = [];
-				this.newops = [];
-				var currentContent = this.quill.getContents();
-				this.oldops = currentContent.ops;
-				$.each(currentContent.ops, _.bind(function(i,j){
-					this.newops.push(j);
-					if(j.attributes.color) var color = (this.invertColor(Color(j.attributes.color).hex()));
-					else var color = '#FFFFFF';
-					this.newops[i].attributes.color = Color(color).css();
-				},this));
-				this.quill.setContents(this.newops);
-			},
-			invertColor: function(hexTripletColor) {
-				return "#" + ("000000" + (0xFFFFFF ^ parseInt(hexTripletColor.substring(1), 16)).toString(16)).slice(-6);
+
+				// this.oldops = [];
+				// this.newops = [];
+				// var currentContent = this.quill.getContents();
+				// this.oldops = currentContent.ops;
+				// $.each(currentContent.ops, _.bind(function(i,j){
+				// 	this.newops.push(j);
+				// 	if(!j.attributes.color || j.attributes.color == 'rgb(0,0,0)') this.newops[i].attributes.color = 'rgb(255,255,255)';
+				// 	if(!j.attributes.color || j.attributes.color == 'rgb(255,255,255)') this.newops[i].attributes.color = 'rgb(0,0,0)';
+				// },this));
+				// this.quill.setContents(this.newops);
 			}
 		});
 		return Editor;

@@ -6,15 +6,18 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 		var Fonts = Backbone.Collection.extend({
 			model: Font,
 			initialize: function(){
+				window.App.model.on('change:fonts', this.setFonts, this);
 			},
-			buildFonts: function(fonts){
+			setFonts: function(model, fonts){
 				$.each(fonts, _.bind(function(i,j){
 					this.add({
 						name : j.name,
+						hash : j.hash,
 						weights : new Weights(j.weights),
 						defContent : j.defContent,
 						defSize : j.defSize,
-						defHeight : j.defHeight
+						defHeight : j.defHeight,
+						defWeight : j.defWeight
 					})
 				},this));
 			}

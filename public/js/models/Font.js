@@ -9,7 +9,17 @@ define(['backbone'],
 				name : null,
 				defContent : null,
 				defSize : null,
-				defHeight : null
+				defHeight : null,
+				css : null
+			},
+			loadFont : function(font){
+				if(this.get('css')) return alert('already loaded this font');
+				$.ajax({
+					url: '/single/'+font,
+					success: _.bind(function(data){
+						this.set('css', data)
+					},this)
+				});
 			}
 		});
 		return Font;

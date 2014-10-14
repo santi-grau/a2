@@ -7,6 +7,9 @@ require.config({
 		underscore: {
 			exports: '_'
 		},
+		jquery: {
+			exports : '$'
+		},
 		backbone: {
 			deps: [
 				'underscore',
@@ -50,20 +53,31 @@ require.config({
 		color: 'libs/color/one-color'
 	}
 });
-require(['views/Toolbar','views/Editor','views/Options', 'collections/Fonts', 'text!data/data.json'],
-	function(Toolbar, Editor, Options, Fonts, Data){
-		window.App = {
-			Models: {},
+require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collections/Fonts'],
+	function(Appmodel, Toolbar, Editor, Options, Fonts){
+		var App = Backbone.View.extend({
+			Models : {},
+			Views : {},
 			Collections: {},
-			Views: {}
-		};
-		App.Views.Toolbar = new Toolbar();
-		App.Views.Editor = new Editor();
-		App.Views.Options = new Options();
-		App.Collections.Fonts = new Fonts();
-		var data = $.parseJSON(Data);
-		App.Collections.Fonts.buildFonts(data.fonts);
-		App.Views.Toolbar.weight_partial = _.template(data.weight_partial);
-		App.Views.Toolbar.model.set('font', data.display);
+			model : new Appmodel(),
+			el : window,
+			initialize: function(){
+				$.getJSON('data', _.bind(this.dataReady, this));
+			},
+			dataReady: function(data){
+				this.Collections.Fonts = new Fonts()
+				this.Views.Toolbar = new Toolbar();
+				this.Views.Options = new Options();
+				this.Views.Editor = new Editor();
+				this.model.set(data);
+				this.Collections.Fonts.on('change:css', this.loadCss, this);
+			},
+			loadCss: function(model){
+				console.log(model)
+				$('<style type="text/css" />').html(model.get('css')).appendTo('head')
+				// document.body.appendChild(css);
+			}
+		})
+		window.App = new App();
 	}
 );
