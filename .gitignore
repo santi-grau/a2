@@ -1,0 +1,12 @@
+.env
+node_modules
+
+public/fonts
+
+public/build
+!public/build/main.js
+!public/build/main-min.js
+!public/build/build.txt
+!public/build/almond.js
+
+public/css/main.styl

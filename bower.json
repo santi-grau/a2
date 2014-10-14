@@ -1,0 +1,21 @@
+{
+  "name": "A2 Type Tester",
+  "version": "0.0.0",
+  "authors": [
+    "Santi Grau <santi.grau.torredemer@gmail.com>"
+  ],
+  "componentsDirectory": "public/js/libs",
+  "description": "A2 Type Tester",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.1",
+    "text": "~2.0.12",
+    "requirejs": "*",
+    "jquery-ui": "1.10.4",
+    "quill": "~0.17.6",
+    "color": "~2.4.2"
+  }
+}
