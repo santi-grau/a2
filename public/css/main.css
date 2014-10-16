@@ -166,13 +166,14 @@ body {
 #content {
   border: solid 1px #000;
   padding: 35px 25px;
-  height: 2000px;
+  height: 600px;
   position: relative;
   -webkit-transition: background-color 0.1s;
   -moz-transition: background-color 0.1s;
   -o-transition: background-color 0.1s;
   -ms-transition: background-color 0.1s;
   transition: background-color 0.1s;
+  margin-bottom: 40px;
 }
 #content.invert {
   background: #000;

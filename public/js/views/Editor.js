@@ -46,7 +46,7 @@ define(['backbone', 'quill', 'color'],
 			setNewText: function(range, source){
 				var top = $(this.quill.root).find('.line:last').position().top;
 				var height = $(this.quill.root).find('.line:last').height();
-				$('#content').height(height + top + 30)
+				$('#content').height(parseInt(height) + parseInt(top) + parseInt(30))
 			},
 			setContent: function(model){
 				this.quill.setContents(model.get('defContent'));
@@ -56,6 +56,7 @@ define(['backbone', 'quill', 'color'],
 				var firstLineHeight = parseInt($(this.quill.root).find('.line:eq(0)').css('line-height'));
 				// if(firstLineHeight) console.log(firstLineHeight)
 				window.App.Views.Toolbar.refreshHeightHanlder(firstLineHeight);
+				setTimeout(_.bind(this.setNewText, this), 1000)
 			},
 			setStyles: function(model){
 				var css = model.get('css');
@@ -210,7 +211,6 @@ define(['backbone', 'quill', 'color'],
 				else this.$el.removeClass('loading');
 			},
 			setPercentage: function(model, percentage){
-				console.log(percentage)
 				$('#loaderBar').css('width' , percentage + '%')
 			}
 		});
