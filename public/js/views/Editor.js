@@ -14,6 +14,7 @@ define(['backbone', 'quill', 'color'],
 				window.App.Models.App.on('change:color', this.setColor, this);
 				window.App.Models.App.on('change:size', this.setSize, this);
 				window.App.Models.App.on('change:height', this.setHeight, this);
+				window.App.Collections.Fonts.on('change:loaded', this.setPercentage, this);
 				window.App.Collections.Fonts.on('change:loading', this.loadFont, this);
 				this.setQuill();
 			},
@@ -52,14 +53,9 @@ define(['backbone', 'quill', 'color'],
 				var currentContent = this.quill.getContents();
 				ops = currentContent.ops;
 				window.App.Views.Toolbar.refreshSizeHanlder(parseInt(ops[0].attributes.size));
-
-
-
-				// console.log(this.quill.editor.doc.lineMap);
-				// setInterval(_.bind(function(){
-					//$(this.quill.editor.doc.lineMap['line-1'].node).css('line-height', '300px')
-				// },this), 1000)
-				
+				var firstLineHeight = parseInt($(this.quill.root).find('.line:eq(0)').css('line-height'));
+				// if(firstLineHeight) console.log(firstLineHeight)
+				window.App.Views.Toolbar.refreshHeightHanlder(firstLineHeight);
 			},
 			setStyles: function(model){
 				var css = model.get('css');
@@ -177,12 +173,14 @@ define(['backbone', 'quill', 'color'],
 						}
 					});
 				}
-				var styles = {};
-				$.each(window.App.Models.App.get('lineRange'), _.bind(function(i, j){
-					styles['#' + j] = { 'line-height' : size*.9 + 'px' }
-				},this));
-				console.log(styles)
-				this.quill.addStyles(styles);
+				if(this.range && this.range.start && this.range.end && this.range.start !== this.range.end){
+					var styles = {};
+					$.each(window.App.Models.App.get('lineRange'), _.bind(function(i, j){
+						styles['#' + j] = { 'line-height' : size*.9 + 'px' }
+					},this));
+					window.App.Views.Toolbar.refreshHeightHanlder(size*.9 );
+					this.quill.addStyles(styles);
+				}
 			},
 			setHeight: function(model, attr){
 				var styles = {};
@@ -210,6 +208,10 @@ define(['backbone', 'quill', 'color'],
 			loadFont: function(model, loading){
 				if(loading) this.$el.addClass('loading');
 				else this.$el.removeClass('loading');
+			},
+			setPercentage: function(model, percentage){
+				console.log(percentage)
+				$('#loaderBar').css('width' , percentage + '%')
 			}
 		});
 		return Editor;

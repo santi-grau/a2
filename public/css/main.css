@@ -180,6 +180,36 @@ body {
 #content.invert #invert {
   border: solid 1px #fff;
 }
+#content #loadingFont {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: calc(100% - 60px);
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opcity 0.3s;
+  -moz-transition: opcity 0.3s;
+  -o-transition: opcity 0.3s;
+  -ms-transition: opcity 0.3s;
+  transition: opcity 0.3s;
+}
+#content #loadingFont.active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#content #loadingFont #loaderBar {
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  -ms-transition: width 0.3s;
+  transition: width 0.3s;
+  border-bottom: solid 1px #000;
+  width: 0%;
+  height: 1px;
+  margin-top: 5px;
+}
 #content #editor {
   position: relative;
   z-index: 0;

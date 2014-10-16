@@ -14,17 +14,37 @@ define(['backbone'],
 				defWidth : null,
 				buypage : null,
 				css : null,
-				loading: false
+				loading : false,
+				loaded : 0
 			},
 			loadFont : function(font){
 				if(this.get('css')) return;
 				this.set('loading', true);
-				$.getJSON('/single/'+font, _.bind(function(data){
-					this.set({
-						'css' : data
-					});
-					this.set('loading', false);
-				}, this));
+				$('#loadingFont').addClass('active');
+				$.ajax({
+					xhr: _.bind(function() {
+						var xhr = new window.XMLHttpRequest();
+						xhr.addEventListener("progress", _.bind(function(evt) {
+							if (evt.lengthComputable) {
+								var percentComplete = evt.loaded / evt.total;
+								this.set({
+									'loaded' : Math.round(percentComplete * 100)
+								})
+							}
+						}, this), false);
+						return xhr;
+					},this),
+					type: 'GET',
+					url: '/single/'+font,
+					success: _.bind(function(data){
+						$('#loadingFont').removeClass('active');
+						this.set({
+							'css' : data,
+							'loaded' : 0,
+							'loading' : false
+						})
+					},this)
+				});
 			}
 		});
 		return Font;

@@ -89,7 +89,10 @@ define(['backbone', 'jqueryUiDraggable'],
 				App.Models.App.set('weight', weightHash);
 			},
 			refreshSizeHanlder: function(size){
-				$('#sizeSelector .dragger').css('left', parseInt(size)/$('#sizeSelector .dragger').data('range') * $('#sizeSelector').width())
+				$('#sizeSelector .dragger').css('left', parseInt(size)/$('#sizeSelector .dragger').data('range') * $('#sizeSelector').width());
+			},
+			refreshHeightHanlder: function(size){
+				$('#heightSelector .dragger').css('left', parseInt(size)/$('#heightSelector .dragger').data('range') * $('#heightSelector').width());
 			}
 		});
 		return Toolbar;
