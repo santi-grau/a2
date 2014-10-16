@@ -6,41 +6,138 @@ define(['backbone', 'quill', 'color'],
 		var Editor = Backbone.View.extend({
 			el: '#editor',
 			initialize: function(){
-				window.App.Views.Toolbar.model.on('change:font', this.setFont, this);
-				window.App.Views.Toolbar.model.on('change:weight', this.setWeight, this);
-				window.App.Views.Toolbar.model.on('change:color', this.setColor, this);
-				window.App.Views.Toolbar.model.on('change:size', this.setSize, this);
-				window.App.Views.Toolbar.model.on('change:height', this.setHeight, this);
-				window.App.Models.Toolbar
+				window.App.Collections.Fonts.once('change:css', this.setContent, this);
+				window.App.Collections.Fonts.on('change:css', this.setStyles, this);
+				window.App.Models.App.on('change:font', this.setFont, this);
+				window.App.Models.App.on('change:weight', this.setWeight, this);
+				window.App.Models.App.on('change:inverted', this.toggleColors, this);
+				window.App.Models.App.on('change:color', this.setColor, this);
+				window.App.Models.App.on('change:size', this.setSize, this);
+				window.App.Models.App.on('change:height', this.setHeight, this);
+				window.App.Collections.Fonts.on('change:loading', this.loadFont, this);
+				this.setQuill();
+			},
+			setQuill: function(){
 				this.range = {};
 				this.quill = new Quill('#editor',{
 					styles: {
 						'img' : {
 							'width' : 'auto !important',
-							'position' : 'relative'
+							'position' : 'absolute'
+						},
+						'body' : {
+							'line-height' : '100px',
+							'text-rendering' : 'optimizeLegibility',
+							'font-feature-settings' : 'kern',
+							'-webkit-font-feature-settings': 'kern',
+							'-moz-font-feature-settings' : 'kern',
+							'-moz-font-feature-settings': 'kern=1'
 						}
 					}
 				});
 				this.quill.addModule('toolbar', { container: window.App.Views.Toolbar.$el[0] });
-				//this.quill.on('text-change', _.bind(this.setEditorHeight, this));
 				this.quill.on('selection-change', _.bind(this.setRange, this));
-				this.$el.addClass('ready');
-			},
-			setEditorHeight: function(){
-				var lastSpan = null;
-				if($("#editor iframe").contents().find(".line").length) lastSpan = $("#editor iframe").contents().find(".line").last();
+				this.quill.on('text-change', _.bind(this.setNewText, this));
 				setTimeout(_.bind(function(){
-					if(lastSpan){
-						this.$el.css('height' , lastSpan.offset().top + lastSpan.height() + 150)
-					}else{
-						this.$el.css('height' , '600px')
-					}
-				},this), 100)
+					this.setSpecials();
+				},this),1000);
+			},
+			setNewText: function(range, source){
+				var top = $(this.quill.root).find('.line:last').position().top;
+				var height = $(this.quill.root).find('.line:last').height();
+				$('#content').height(height + top + 30)
+			},
+			setContent: function(model){
+				this.quill.setContents(model.get('defContent'));
+				var currentContent = this.quill.getContents();
+				ops = currentContent.ops;
+				window.App.Views.Toolbar.refreshSizeHanlder(parseInt(ops[0].attributes.size));
+
+
+
+				// console.log(this.quill.editor.doc.lineMap);
+				// setInterval(_.bind(function(){
+					//$(this.quill.editor.doc.lineMap['line-1'].node).css('line-height', '300px')
+				// },this), 1000)
+				
+			},
+			setStyles: function(model){
+				var css = model.get('css');
+				css.forEach(_.bind(function(style, i) {
+					this.quill.addStyles({
+						'@font-face' : {
+							'font-family' : css[i]['font-family'],
+							'src' : css[i].src + " format('woff')"
+						}
+					});
+				}, this));
+			},
+			setFont: function(model, attr){
+				var weight  =  window.App.Models.App.get('weight');
+				if(this.range && this.range.start !== null && this.range.end){
+					this.quill.formatText(this.range.start, this.range.end, {
+						'font': attr + '-' + weight
+					});
+				}
+			},
+			setWeight: function(model, attr){
+				var font = window.App.Models.App.get('font');
+				if(this.range && this.range.start !== null && this.range.end){
+					this.quill.formatText(this.range.start, this.range.end, {
+						'font': font + '-' + attr
+					});
+				}
 			},
 			setRange: function(range, source){
-				//this.setEditorHeight();
 				this.range = range;
 				var selection = this.quill.getSelection();
+				if(range && range.start !== null && range.end) var opsAtRange = this.quill.getContents(range.start,range.end).ops;
+				if(!range) return;
+				var fontSizes = [];;
+				$.each(opsAtRange, _.bind(function(i,ops){
+					$.each(ops.attributes, _.bind(function(j,attr){
+						if(j == 'size') fontSizes.push(attr)
+					},this));
+				},this));
+				var uniq = _.uniq(fontSizes);
+				if(uniq.length == 1){
+					window.App.Views.Toolbar.refreshSizeHanlder(uniq[0]);
+				}
+				var rangeCount = 0;
+				var lineRange = [];
+				var adding = false;
+				$.each(this.quill.editor.doc.lineMap, _.bind(function(i,j){
+					if(range.start >= rangeCount && range.start < rangeCount + j.length) adding = true;
+					if(adding) lineRange.push(i)
+					if(range.end > rangeCount && range.end <= rangeCount + j.length) adding = false;
+					rangeCount += j.length
+				}, this))
+				window.App.Models.App.set('lineRange', lineRange);
+				// console.log(this.quill)
+			},
+			setSpecials: function(){
+				// WORD BUY
+				var highlightElement = $(this.quill.root).find('.line span:contains("BUY")');
+				var highlightColor = highlightElement.css('color');
+				highlightElement.addClass('spot');
+				this.originalFontSize = 134;
+				this.quill.addStyles({
+					'.spot' : {
+						'display' : 'inline-block',
+						'padding' : '30px 0px 0px 0px',
+						'border-radius' : '100px',
+						'-moz-border-radius' : '100px',
+						'-webkit-border-radius' : '100px',
+						'-ms-border-radius' : '100px',
+						'text-align' : 'center',
+						'width' : '150px',
+						'height' : '120px',
+						'position' : 'relative',
+						'margin-top' : '-20px',
+						'margin-left' : '-6px',
+						'top' : '-8px'
+					}
+				});
 			},
 			setColor: function(model){
 				var rgb = model.get('color')
@@ -50,82 +147,69 @@ define(['backbone', 'quill', 'color'],
 					});
 				}
 			},
-			setFont: function(model){
-				var font = App.Collections.Fonts.find(function(m){ return (m.get('name') == model.get('font')); });
-				if(!font) return;
-				this.quill.addStyles('css/' + model.get('font') + '.css');
-				var weights = font.get('weights');
-				var def = weights.find(function(m){ return m.get('def'); });
-				App.Views.Toolbar.model.set('weight', def.get('hash'));
-				if(!model.previousAttributes().font) this.setContent(font);
-			},
-			setContent: function(font){
-				var defSize = font.get('defSize');
-				var defHeight = font.get('defHeight');
-				var toolbar = window.App.Views.Toolbar;
-				this.quill.setContents($.parseJSON(font.get('defContent')));
-				toolbar.model.set({
-					'sizeheightratio' : defHeight/defSize,
-					'size' : defSize,
-					'height' : defSize * (defHeight/defSize)
-				});
-				toolbar.$('#sizeSelector .dragger').css({
-					left : ((defSize - 12) / toolbar.$('#sizeSelector .dragger').data('range')) * toolbar.$('#sizeSelector').innerWidth()
-				});
-				toolbar.$('#heightSelector .dragger').css({
-					left : ((defHeight) / toolbar.$('#heightSelector .dragger').data('range')) * toolbar.$('#heightSelector').innerWidth()
-				})
-			},
 			setSize: function(model){
 				var size = model.get('size');
-				var sizeheightratio = model.get('sizeheightratio');
-				var toolbar = window.App.Views.Toolbar;
-				var heightDragger = toolbar.$('#heightSelector .dragger');
-				var heightDraggerVal = Math.max(0,Math.min(size * sizeheightratio, heightDragger.data('range') - heightDragger.width()));
-				model.set('height', heightDraggerVal);
-				this.quill.addStyles({
-					'body': {
-						'font-size': size + 'px'
-					},
-					'img' : {
-						'height' : size + 'px !important',
-						'top' : size/10 + 'px'
-					}
-				})
-			},
-			setHeight: function(model){  //////// fix this shit
-				var height = model.get('height');
-				var toolbar = window.App.Views.Toolbar;
-				toolbar.$('#heightSelector .dragger').css({
-					left : ((height)/toolbar.$('#heightSelector .dragger').data('range')) * toolbar.$('#heightSelector').innerWidth()
-					//left : heightDraggerVal / toolbar.$('#heightSelector .dragger').data('range') * toolbar.$('#heightSelector').innerWidth()
-				})
-				this.quill.addStyles({
-					'body': {
-						'line-height': height + 'px'
-					}
-				})
-				toolbar.model.set('sizeheightratio', model.get('height')/model.get('size'));
-			},
-			setWeight: function(model){
 				if(this.range && this.range.start !== null && this.range.end){
 					this.quill.formatText(this.range.start, this.range.end, {
-						'font': model.get('weight')
+						'size': size + 'px'
 					});
 				}
+				var buyLine = $(this.quill.root).find('.line span:contains("BUY")').parents('.line').attr('id');
+				if(_.indexOf(window.App.Models.App.get('lineRange'), buyLine) !== -1){
+					var scale = size/this.originalFontSize;
+					this.quill.addStyles({
+						'.spot' : {
+							'display' : 'inline',
+							'padding' : '0',
+							'border-radius' : 'none',
+							'-moz-border-radius' : 'none',
+							'-webkit-border-radius' : 'none',
+							'-ms-border-radius' : 'none',
+							'text-align' : 'left',
+							'width' : '150px',
+							'height' : '120px',
+							'position' : 'relative',
+							'margin-top' : '0',
+							'margin-left' : '0',
+							'top' : '0',
+							'background' : '#FFFFFF !important',
+							'color' : 'rgb(0,191,36) !important'
+						}
+					});
+				}
+				var styles = {};
+				$.each(window.App.Models.App.get('lineRange'), _.bind(function(i, j){
+					styles['#' + j] = { 'line-height' : size*.9 + 'px' }
+				},this));
+				console.log(styles)
+				this.quill.addStyles(styles);
 			},
-			toggleColors: function(){
-
-				// this.oldops = [];
-				// this.newops = [];
-				// var currentContent = this.quill.getContents();
-				// this.oldops = currentContent.ops;
-				// $.each(currentContent.ops, _.bind(function(i,j){
-				// 	this.newops.push(j);
-				// 	if(!j.attributes.color || j.attributes.color == 'rgb(0,0,0)') this.newops[i].attributes.color = 'rgb(255,255,255)';
-				// 	if(!j.attributes.color || j.attributes.color == 'rgb(255,255,255)') this.newops[i].attributes.color = 'rgb(0,0,0)';
-				// },this));
-				// this.quill.setContents(this.newops);
+			setHeight: function(model, attr){
+				var styles = {};
+				$.each(window.App.Models.App.get('lineRange'), _.bind(function(i, j){
+					styles['#' + j] = { 'line-height' : attr + 'px' }
+				},this));
+				this.quill.addStyles(styles);
+			},
+			toggleColors: function(model, attr){
+				$('#content').toggleClass('invert');
+				var currentContent = this.quill.getContents();
+				ops = currentContent.ops;
+				$.each(ops, _.bind(function(i,j){
+					if(j.value == 'Highlight') return;
+					if(j.value == 'BUY') return;
+					if(attr) {
+						if(!j.attributes.color || j.attributes.color == 'rgb(0, 0, 0)') ops[i].attributes.color = 'rgb(255, 255, 255)';
+					}else{
+						if(j.attributes.color == 'rgb(255, 255, 255)') ops[i].attributes.color = 'rgb(0, 0, 0)';
+					}
+				},this));
+				this.quill.setContents(ops);
+				this.setSpecials();
+			},
+			loadFont: function(model, loading){
+				if(loading) this.$el.addClass('loading');
+				else this.$el.removeClass('loading');
 			}
 		});
 		return Editor;

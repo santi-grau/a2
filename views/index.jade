@@ -61,10 +61,10 @@ html
     div(id="typetester")
       ul(id="toolbar", class="clearfix")
         li(id="fontSelector", class="dropdown")
-          a(href="javascript:void(0)") Select font
+          a#fontTitle(href="javascript:void(0)", data-defTitle="Select font") Select font
           ul#fontList
         li(id="weightSelector", class="dropdown")
-          a(href="javascript:void(0)") Weight / Style
+          a#weightTitle(href="javascript:void(0)", data-defTitle="Weight / Style") Weight / Style
           ul#weightList
         li(id="sizeSelector",class="slider")
           span Size
@@ -73,15 +73,13 @@ html
           span Line spacing
           div(class="dragger",data-attr="height",data-range="200")
       div(id="content")
-        div(id="editor")
+        div.loading(id="editor")
         div(id="options")
           div(id="colorCircle")
             a(id="outerCircle")
               div(id="colorZoom")
                 div(class="inner")
             div(id="centerCircle")
-            a(href="javascript:void(0)",id="whiteCircle", class="basicSelectors",data-color='rgb(255,255,255)')
-            a(href="javascript:void(0)",id="blackCircle", class="basicSelectors",data-color='rgb(0,0,0)')
           a(href="javascript:void(0)",id="buy")
           a(href="javascript:void(0)",id="invert")
     script(src='js/libs/requirejs/require.js', data-main='js/main.js')

@@ -46,7 +46,7 @@ app.get('/data', function(req, res){
 	res.send(data)
 });
 app.get('/single/:font', function(req, res){
-	var css = fs.readFileSync('public/css/' + req.param('font') + '.css', 'utf8');
+	var css = JSON.parse(fs.readFileSync('public/fonts/' + req.param('font') + '.json', 'utf8'));
 	res.send(css);
 });
 app.get('/', function(req, res){

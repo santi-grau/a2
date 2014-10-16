@@ -49,7 +49,7 @@ require.config({
 		underscore: 'libs/underscore/underscore-min',
 		backbone: 'libs/backbone/backbone',
 		text: 'libs/text/text',
-		quill: 'libs/quill/dist/quill.min',
+		quill: 'libs/quill/dist/quill',
 		color: 'libs/color/one-color'
 	}
 });
@@ -59,23 +59,33 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 			Models : {},
 			Views : {},
 			Collections: {},
-			model : new Appmodel(),
 			el : window,
 			initialize: function(){
 				$.getJSON('data', _.bind(this.dataReady, this));
+				this.$el.bind('scroll', _.bind(this.scrollCheck, this));
+			},
+			scrollCheck: function(){
+				var scrollTop = this.$el.scrollTop();
+				this.Views.Options.fix(scrollTop > $('#content').offset().top);
 			},
 			dataReady: function(data){
-				this.Collections.Fonts = new Fonts()
+				this.Models.App = new Appmodel()
+				this.Collections.Fonts = new Fonts();
 				this.Views.Toolbar = new Toolbar();
 				this.Views.Options = new Options();
 				this.Views.Editor = new Editor();
-				this.model.set(data);
+				this.Models.App.set(data);
 				this.Collections.Fonts.on('change:css', this.loadCss, this);
+				this.scrollCheck();
+				// console.log(this)
 			},
 			loadCss: function(model){
-				console.log(model)
-				$('<style type="text/css" />').html(model.get('css')).appendTo('head')
-				// document.body.appendChild(css);
+				var sheet = $('<style id="' + model.get('hash') + 'Styles" type="text/css" />').appendTo('head');
+				var css = model.get('css');
+				css.forEach(function(style, i) {
+					var rule = "@font-face { font-family: " + style['font-family'] + "; src: " + style.src + " format('woff'); }";
+					$(sheet).append(rule);
+				});
 			}
 		})
 		window.App = new App();

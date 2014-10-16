@@ -6,7 +6,7 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 		var Fonts = Backbone.Collection.extend({
 			model: Font,
 			initialize: function(){
-				window.App.model.on('change:fonts', this.setFonts, this);
+				window.App.Models.App.on('change:fonts', this.setFonts, this);
 			},
 			setFonts: function(model, fonts){
 				$.each(fonts, _.bind(function(i,j){
@@ -17,7 +17,8 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 						defContent : j.defContent,
 						defSize : j.defSize,
 						defHeight : j.defHeight,
-						defWeight : j.defWeight
+						defWeight : j.defWeight,
+						buypage : j.buypage
 					})
 				},this));
 			}
