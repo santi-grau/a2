@@ -29,7 +29,6 @@ define(['backbone', 'quill', 'color'],
 						},
 						'body' : {
 							'overflow' : 'hidden',
-							'line-height' : '100px',
 							'text-rendering' : 'optimizeLegibility',
 							'font-feature-settings' : 'kern',
 							'-webkit-font-feature-settings': 'kern',
@@ -45,19 +44,34 @@ define(['backbone', 'quill', 'color'],
 					this.setSpecials();
 				},this),1000);
 			},
-			setNewText: function(range, source){
+			setNewText: function(delta, source){
+				$.each(this.quill.editor.doc.lineMap, _.bind(function(index, line){
+					if(this.quill.editor.doc.lineMap.length > 1 && $(line.node).text() == ''){
+						var ops = line.prev.delta.ops;
+						var attributes = ops[ops.length-2].attributes;
+						$.each(attributes, _.bind(function(attr, value){
+							this.quill.prepareFormat(attr, value);
+						}, this));
+					}
+				}, this));
 				var top = $(this.quill.root).find('.line:last').position().top;
 				var height = $(this.quill.root).find('.line:last').height();
-				$('#content').height(parseInt(height) + parseInt(top) + parseInt(30))
+				$('#content').height(Math.max(parseInt(height) + parseInt(top) + parseInt(30), 600));
 			},
 			setContent: function(model){
 				this.quill.setContents(model.get('defContent'));
 				var currentContent = this.quill.getContents();
 				ops = currentContent.ops;
-				window.App.Views.Toolbar.refreshSizeHanlder(parseInt(ops[0].attributes.size));
-				var firstLineHeight = parseInt($(this.quill.root).find('.line:eq(0)').css('line-height'));
-				window.App.Views.Toolbar.refreshHeightHanlder(firstLineHeight);
-				setTimeout(_.bind(this.setNewText, this), 1000)
+				window.App.Views.Toolbar.refreshSizeHanlder(model.get('defSize'));
+				window.App.Views.Toolbar.refreshHeightHanlder(model.get('defHeight'));
+				this.quill.addStyles({
+					'body' : {
+						'font-size' : model.get('defSize') + 'px',
+						'line-height' : model.get('defHeight') + 'px'
+					}
+				});
+				window.App.Models.App.set('heightRatio', model.get('heightRatio'));
+				setTimeout(_.bind(this.setNewText, this), 1000);
 			},
 			setStyles: function(model){
 				var css = model.get('css');
@@ -88,29 +102,6 @@ define(['backbone', 'quill', 'color'],
 			},
 			setRange: function(range, source){
 				this.range = range;
-				var selection = this.quill.getSelection();
-				if(range && range.start !== null && range.end) var opsAtRange = this.quill.getContents(range.start,range.end).ops;
-				if(!range) return;
-				var fontSizes = [];;
-				$.each(opsAtRange, _.bind(function(i,ops){
-					$.each(ops.attributes, _.bind(function(j,attr){
-						if(j == 'size') fontSizes.push(attr)
-					},this));
-				},this));
-				var uniq = _.uniq(fontSizes);
-				if(uniq.length == 1){
-					window.App.Views.Toolbar.refreshSizeHanlder(uniq[0]);
-				}
-				var rangeCount = 0;
-				var lineRange = [];
-				var adding = false;
-				$.each(this.quill.editor.doc.lineMap, _.bind(function(i,j){
-					if(range.start >= rangeCount && range.start < rangeCount + j.length) adding = true;
-					if(adding) lineRange.push(i)
-					if(range.end > rangeCount && range.end <= rangeCount + j.length) adding = false;
-					rangeCount += j.length
-				}, this))
-				window.App.Models.App.set('lineRange', lineRange);
 			},
 			setSpecials: function(){
 				
@@ -123,28 +114,19 @@ define(['backbone', 'quill', 'color'],
 					});
 				}
 			},
-			setSize: function(model){
-				var size = model.get('size');
-				if(this.range && this.range.start !== null && this.range.end){
-					this.quill.formatText(this.range.start, this.range.end, {
-						'size': size + 'px'
-					});
-				}
-				if(this.range && this.range.start && this.range.end && this.range.start !== this.range.end){
-					var styles = {};
-					$.each(window.App.Models.App.get('lineRange'), _.bind(function(i, j){
-						styles['#' + j] = { 'line-height' : size*.9 + 'px' }
-					},this));
-					window.App.Views.Toolbar.refreshHeightHanlder(size*.9 );
-					this.quill.addStyles(styles);
-				}
+			setSize: function(model, size){
+				this.quill.addStyles({
+					'body' : {
+						'font-size' : size + 'px',
+					}
+				});
 			},
-			setHeight: function(model, attr){
-				var styles = {};
-				$.each(window.App.Models.App.get('lineRange'), _.bind(function(i, j){
-					styles['#' + j] = { 'line-height' : attr + 'px' }
-				},this));
-				this.quill.addStyles(styles);
+			setHeight: function(model, height){
+				this.quill.addStyles({
+					'body' : {
+						'line-height' : height + 'px',
+					}
+				});
 			},
 			toggleColors: function(model, attr){
 				$('#content').toggleClass('invert');
@@ -152,7 +134,6 @@ define(['backbone', 'quill', 'color'],
 				ops = currentContent.ops;
 				$.each(ops, _.bind(function(i,j){
 					if(j.value == 'Highlight') return;
-					if(j.value == 'BUY') return;
 					if(attr) {
 						if(!j.attributes.color || j.attributes.color == 'rgb(0, 0, 0)') ops[i].attributes.color = 'rgb(255, 255, 255)';
 					}else{

@@ -71,8 +71,6 @@ define(['backbone', 'jqueryUiDraggable'],
 				App.Models.App.set('weight', defWeight);
 				this.$('#weightList').html(partial);
 				font.loadFont(fontHash);
-				// this.$('#fontTitle').html(name).css('font-family' , '"' + fontHash + '-' + defWeight + '"');
-				// this.$('#weightTitle').html(weight).css('font-family' , '"' + fontHash + '-' + defWeight + '"');
 				if(!firstSet){
 					this.$('#fontTitle').html(name);
 					this.$('#weightTitle').html(weight);

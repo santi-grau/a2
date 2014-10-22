@@ -18,7 +18,8 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 						defSize : j.defSize,
 						defHeight : j.defHeight,
 						defWeight : j.defWeight,
-						buypage : j.buypage
+						buypage : j.buypage,
+						heightRatio : j.defHeight / j.defSize
 					})
 				},this));
 			}

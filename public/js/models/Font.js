@@ -15,7 +15,8 @@ define(['backbone'],
 				buypage : null,
 				css : null,
 				loading : false,
-				loaded : 0
+				loaded : 0,
+				heightRatio : null
 			},
 			loadFont : function(font){
 				if(this.get('css')) return;
