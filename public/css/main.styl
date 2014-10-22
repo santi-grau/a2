@@ -150,7 +150,7 @@ body
     background #000
     #invert
       border solid 1px #ffffff
-  #loadingFont
+  #loadingFont, #resizeAlert
     position absolute
     top 30px
     left 30px
@@ -173,7 +173,7 @@ body
     height 100%
     margin 0
     padding 0
-    &.loading
+    &.loading, &.resizing
       display none
   #options
     &.fixed
@@ -211,8 +211,8 @@ body
           position absolute
           width 28px
           height 28px
-          border solid 1px #ffffff
-          background-color #ffffff
+          border solid 1px #dedede
+          background-color #cccccc
           border-radius 14px
           pointer-events none
           transition opacity 0.2s
@@ -236,6 +236,8 @@ body
         margin-left -9px
         margin-top -9px
         border-radius 9px
+        pointer-events none
+        background #FFFFFF
       .basicSelectors
         display block
         position absolute

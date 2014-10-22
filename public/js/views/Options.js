@@ -11,10 +11,10 @@ define(['backbone', 'color'],
 				'mouseleave #outerCircle' : 'endColorDrag',
 				'mouseup #outerCircle' : 'endColorDrag',
 				'mousedown #invert' : 'toggleBackground',
-				'mousedown #buy' : 'buyFont'
+				'mousedown #buy' : 'buyFont',
+				'mousedown #centerCircle' : 'centerCircle'
 			},
-			initialize: function(data){
-				_.extend(this,data);
+			initialize: function(){
 			},
 			startColorDrag: function(e){
 				e.preventDefault();
@@ -27,12 +27,15 @@ define(['backbone', 'color'],
 				App.Models.App.set('color', color);
 			},
 			getColor: function(e){
+				var blackTolerance = 10;
 				var circCenterX = this.$('#outerCircle').width() / 2;
 				var circCenterY = this.$('#outerCircle').height() / 2;
 				var angle = Math.atan2(e.offsetY - circCenterY, e.offsetX - circCenterX) * 180 / Math.PI + 150;
 				var distance = this.lineDistance({ x: circCenterX, y: circCenterY }, { x: e.offsetX , y: e.offsetY })
 				var level = Math.max(Math.min((distance - 10) / (($('#outerCircle').width() / 2) - 11)),0) * 100 + '%';
-				return Color('hsv('+ Math.abs(angle > 0 ? angle : 360+angle) +', 100%, '+level+')').css();
+				if(distance > this.$('#centerCircle').width() / 2 +blackTolerance) return Color('hsv('+ Math.abs(angle > 0 ? angle : 360+angle) +', 100%, '+level+')').css();
+				else if(distance > this.$('#centerCircle').width() / 2 && distance < this.$('#centerCircle').width() / 2 + blackTolerance) return Color('hsv(0, 0%, 0%)').css();
+				else return Color('hsv(0, 0%, 100%)').css()
 			},
 			colorDrag: function(e){
 				var zoom = this.$('#colorZoom');
@@ -53,6 +56,10 @@ define(['backbone', 'color'],
 				var zoom = this.$('#colorZoom');
 				zoom.removeClass('active')
 				circle.removeClass('dragging')
+			},
+			centerCircle: function(e){
+				e.preventDefault();
+				App.Models.App.set('color', 'rgb(255,255,255)');
 			},
 			toggleBackground: function(){
 				window.App.Models.App.set('inverted', !window.App.Models.App.get('inverted'));

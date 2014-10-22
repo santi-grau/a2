@@ -12,7 +12,15 @@ define(['backbone', 'jqueryUiDraggable'],
 			initialize: function(){
 				App.Collections.Fonts.on('add', this.addFontMenuItem, this);
 				App.Models.App.once('change:fonts', this.setDefault, this);
-				this.$('.dragger').draggable({ axis: "x", containment: "parent", drag: _.bind( App.Models.App.setSlider, App.Models.App) });
+				this.$('.dragger').draggable({
+					axis: "x",
+					containment: "parent",
+					drag: _.bind( App.Models.App.setSlider, App.Models.App),
+					stop: _.bind( this.dragStop, this)
+				});
+			},
+			dragStop: function(){
+				App.Views.Editor.setNewText();
 			},
 			addFontMenuItem: function(font){
 				var fontPartial = _.template(App.Models.App.get('fontPartial'));
@@ -58,14 +66,17 @@ define(['backbone', 'jqueryUiDraggable'],
 				var weight = weights.findWhere({ hash : defWeight}).get('name');
 				var weightPartial = _.template(App.Models.App.get('weightPartial'));
 				var partial = weightPartial({data: weights.toJSON()});
+				var firstSet = (App.Models.App.get('font') == null);
 				App.Models.App.set('font', fontHash);
 				App.Models.App.set('weight', defWeight);
 				this.$('#weightList').html(partial);
 				font.loadFont(fontHash);
 				// this.$('#fontTitle').html(name).css('font-family' , '"' + fontHash + '-' + defWeight + '"');
 				// this.$('#weightTitle').html(weight).css('font-family' , '"' + fontHash + '-' + defWeight + '"');
-				this.$('#fontTitle').html(name);
-				this.$('#weightTitle').html(weight);
+				if(!firstSet){
+					this.$('#fontTitle').html(name);
+					this.$('#weightTitle').html(weight);
+				}
 			},
 			selectWeight: function(e){
 				e.preventDefault();

@@ -181,7 +181,8 @@ body {
 #content.invert #invert {
   border: solid 1px #fff;
 }
-#content #loadingFont {
+#content #loadingFont,
+#content #resizeAlert {
   position: absolute;
   top: 30px;
   left: 30px;
@@ -195,12 +196,14 @@ body {
   -ms-transition: opcity 0.3s;
   transition: opcity 0.3s;
 }
-#content #loadingFont.active {
+#content #loadingFont.active,
+#content #resizeAlert.active {
   opacity: 1;
   -ms-filter: none;
   filter: none;
 }
-#content #loadingFont #loaderBar {
+#content #loadingFont #loaderBar,
+#content #resizeAlert #loaderBar {
   -webkit-transition: width 0.3s;
   -moz-transition: width 0.3s;
   -o-transition: width 0.3s;
@@ -220,7 +223,8 @@ body {
   margin: 0;
   padding: 0;
 }
-#content #editor.loading {
+#content #editor.loading,
+#content #editor.resizing {
   display: none;
 }
 #content #options.fixed #colorCircle {
@@ -267,8 +271,8 @@ body {
   position: absolute;
   width: 28px;
   height: 28px;
-  border: solid 1px #fff;
-  background-color: #fff;
+  border: solid 1px #dedede;
+  background-color: #ccc;
   -webkit-border-radius: 14px;
   border-radius: 14px;
   pointer-events: none;
@@ -307,6 +311,8 @@ body {
   margin-top: -9px;
   -webkit-border-radius: 9px;
   border-radius: 9px;
+  pointer-events: none;
+  background: #fff;
 }
 #content #options #colorCircle .basicSelectors {
   display: block;

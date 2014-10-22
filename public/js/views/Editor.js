@@ -23,10 +23,12 @@ define(['backbone', 'quill', 'color'],
 				this.quill = new Quill('#editor',{
 					styles: {
 						'img' : {
-							'width' : 'auto !important',
-							'position' : 'absolute'
+							'position' : 'absolute',
+							'width' : '155px',
+							'margin-top' : '-25px'
 						},
 						'body' : {
+							'overflow' : 'hidden',
 							'line-height' : '100px',
 							'text-rendering' : 'optimizeLegibility',
 							'font-feature-settings' : 'kern',
@@ -54,7 +56,6 @@ define(['backbone', 'quill', 'color'],
 				ops = currentContent.ops;
 				window.App.Views.Toolbar.refreshSizeHanlder(parseInt(ops[0].attributes.size));
 				var firstLineHeight = parseInt($(this.quill.root).find('.line:eq(0)').css('line-height'));
-				// if(firstLineHeight) console.log(firstLineHeight)
 				window.App.Views.Toolbar.refreshHeightHanlder(firstLineHeight);
 				setTimeout(_.bind(this.setNewText, this), 1000)
 			},
@@ -110,31 +111,9 @@ define(['backbone', 'quill', 'color'],
 					rangeCount += j.length
 				}, this))
 				window.App.Models.App.set('lineRange', lineRange);
-				// console.log(this.quill)
 			},
 			setSpecials: function(){
-				// WORD BUY
-				var highlightElement = $(this.quill.root).find('.line span:contains("BUY")');
-				var highlightColor = highlightElement.css('color');
-				highlightElement.addClass('spot');
-				this.originalFontSize = 134;
-				this.quill.addStyles({
-					'.spot' : {
-						'display' : 'inline-block',
-						'padding' : '30px 0px 0px 0px',
-						'border-radius' : '100px',
-						'-moz-border-radius' : '100px',
-						'-webkit-border-radius' : '100px',
-						'-ms-border-radius' : '100px',
-						'text-align' : 'center',
-						'width' : '150px',
-						'height' : '120px',
-						'position' : 'relative',
-						'margin-top' : '-20px',
-						'margin-left' : '-6px',
-						'top' : '-8px'
-					}
-				});
+				
 			},
 			setColor: function(model){
 				var rgb = model.get('color')
@@ -149,29 +128,6 @@ define(['backbone', 'quill', 'color'],
 				if(this.range && this.range.start !== null && this.range.end){
 					this.quill.formatText(this.range.start, this.range.end, {
 						'size': size + 'px'
-					});
-				}
-				var buyLine = $(this.quill.root).find('.line span:contains("BUY")').parents('.line').attr('id');
-				if(_.indexOf(window.App.Models.App.get('lineRange'), buyLine) !== -1){
-					var scale = size/this.originalFontSize;
-					this.quill.addStyles({
-						'.spot' : {
-							'display' : 'inline',
-							'padding' : '0',
-							'border-radius' : 'none',
-							'-moz-border-radius' : 'none',
-							'-webkit-border-radius' : 'none',
-							'-ms-border-radius' : 'none',
-							'text-align' : 'left',
-							'width' : '150px',
-							'height' : '120px',
-							'position' : 'relative',
-							'margin-top' : '0',
-							'margin-left' : '0',
-							'top' : '0',
-							'background' : '#FFFFFF !important',
-							'color' : 'rgb(0,191,36) !important'
-						}
 					});
 				}
 				if(this.range && this.range.start && this.range.end && this.range.start !== this.range.end){
@@ -212,6 +168,15 @@ define(['backbone', 'quill', 'color'],
 			},
 			setPercentage: function(model, percentage){
 				$('#loaderBar').css('width' , percentage + '%')
+			},
+			resize: function(){
+				if(!this.$el.hasClass('resizing')) this.$el.addClass('resizing');
+				if(!$('#resizeAlert').hasClass('active')) $('#resizeAlert').addClass('active');
+			},
+			resizeEnd: function(){
+				_.delay(_.bind(this.setNewText, this), 200);
+				this.$el.removeClass('resizing');
+				$('#resizeAlert').removeClass('active');
 			}
 		});
 		return Editor;

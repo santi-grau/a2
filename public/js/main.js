@@ -63,6 +63,17 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 			initialize: function(){
 				$.getJSON('data', _.bind(this.dataReady, this));
 				this.$el.bind('scroll', _.bind(this.scrollCheck, this));
+				$(window).bind('resize', _.bind(function(e){
+					_.each(this.Views, function(view, index){
+						if(view.resize) view.resize()
+					})
+					clearTimeout($.data(this, 'scrollTimer'));
+					$.data(this, 'scrollTimer', setTimeout(_.bind(function() {
+						_.each(this.Views, function(view, index){
+							if(view.resizeEnd) view.resizeEnd();
+						})
+					}, this), 500));
+				}, this));
 			},
 			scrollCheck: function(){
 				var scrollTop = this.$el.scrollTop();
