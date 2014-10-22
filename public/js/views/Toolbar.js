@@ -18,6 +18,7 @@ define(['backbone', 'jqueryUiDraggable'],
 					drag: _.bind( App.Models.App.setSlider, App.Models.App),
 					stop: _.bind( this.dragStop, this)
 				});
+				window.App.Models.App.set('maxLineHeight', this.$('.dragger[data-attr=height]').data('range'));
 			},
 			dragStop: function(){
 				App.Views.Editor.setNewText();
@@ -94,7 +95,6 @@ define(['backbone', 'jqueryUiDraggable'],
 				var weights = fontModel.get('weights');
 				var weight = weights.findWhere({ hash : weightHash});
 				this.$('#weightTitle').html(weight.get('name'));
-				// this.$('#weightTitle').css('font-family' , '"' + fontHash + '-' + weightHash + '"');
 				App.Models.App.set('weight', weightHash);
 			},
 			refreshSizeHanlder: function(size){

@@ -27,8 +27,9 @@ define(['backbone'],
 					this.set('heightRatio', this.get('height') / this.get('size'))
 				}
 				if(modelAttr == 'size'){
-					this.set('height', this.get('heightRatio') * this.get('size'));
-					window.App.Views.Toolbar.refreshHeightHanlder(this.get('heightRatio') * this.get('size'));
+					var lineHeight = Math.max(Math.min(this.get('heightRatio') * this.get('size'), this.get('maxLineHeight')), 0);
+					this.set('height', lineHeight);
+					window.App.Views.Toolbar.refreshHeightHanlder(lineHeight);
 				}
 			}
 		});

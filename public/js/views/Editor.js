@@ -134,11 +134,10 @@ define(['backbone', 'quill', 'color'],
 				ops = currentContent.ops;
 				$.each(ops, _.bind(function(i,j){
 					if(j.value == 'Highlight') return;
-					if(attr) {
+				
 						if(!j.attributes.color || j.attributes.color == 'rgb(0, 0, 0)') ops[i].attributes.color = 'rgb(255, 255, 255)';
-					}else{
-						if(j.attributes.color == 'rgb(255, 255, 255)') ops[i].attributes.color = 'rgb(0, 0, 0)';
-					}
+						else if(j.attributes.color == 'rgb(255, 255, 255)') ops[i].attributes.color = 'rgb(0, 0, 0)';
+					
 				},this));
 				this.quill.setContents(ops);
 				this.setSpecials();
