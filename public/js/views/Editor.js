@@ -24,8 +24,7 @@ define(['backbone', 'quill', 'color'],
 					styles: {
 						'img' : {
 							'position' : 'absolute',
-							'width' : '155px',
-							'margin-top' : '-25px'
+							'width' : '155px'
 						},
 						'body' : {
 							'overflow' : 'hidden',
@@ -40,9 +39,6 @@ define(['backbone', 'quill', 'color'],
 				this.quill.addModule('toolbar', { container: window.App.Views.Toolbar.$el[0] });
 				this.quill.on('selection-change', _.bind(this.setRange, this));
 				this.quill.on('text-change', _.bind(this.setNewText, this));
-				setTimeout(_.bind(function(){
-					this.setSpecials();
-				},this),1000);
 			},
 			setNewText: function(delta, source){
 				$.each(this.quill.editor.doc.lineMap, _.bind(function(index, line){
@@ -72,6 +68,9 @@ define(['backbone', 'quill', 'color'],
 				});
 				window.App.Models.App.set('heightRatio', model.get('heightRatio'));
 				setTimeout(_.bind(this.setNewText, this), 1000);
+				this.origSize = model.get('defSize');
+				this.origHeight = model.get('defHeight');
+				this.origImg = 155;
 			},
 			setStyles: function(model){
 				var css = model.get('css');
@@ -103,9 +102,6 @@ define(['backbone', 'quill', 'color'],
 			setRange: function(range, source){
 				this.range = range;
 			},
-			setSpecials: function(){
-				
-			},
 			setColor: function(model){
 				var rgb = model.get('color')
 				if(this.range && this.range.start !== null && this.range.end){
@@ -118,6 +114,9 @@ define(['backbone', 'quill', 'color'],
 				this.quill.addStyles({
 					'body' : {
 						'font-size' : size + 'px',
+					},
+					'img' : {
+						'width' : this.origImg * (size/this.origSize) + 'px'
 					}
 				});
 			},
