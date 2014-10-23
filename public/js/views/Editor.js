@@ -133,7 +133,6 @@ define(['backbone', 'quill', 'color'],
 				}
 			},
 			setSize: function(model, size){
-				console.log(App.Models.App.get('size') + ' ----- ' + App.Models.App.get('height'));
 				this.quill.addStyles({
 					'body' : {
 						'font-size' : size + 'px',
@@ -144,7 +143,6 @@ define(['backbone', 'quill', 'color'],
 				});
 			},
 			setHeight: function(model, height){
-				console.log(App.Models.App.get('size') + ' ----- ' + App.Models.App.get('height'));
 				this.quill.addStyles({
 					'body' : {
 						'line-height' : height + 'px'
