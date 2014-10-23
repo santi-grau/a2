@@ -28,7 +28,7 @@ define(['backbone', 'quill', 'color'],
 						},
 						'body' : {
 							'overflow' : 'hidden',
-							'margin-top' : '40px',
+							'margin-top' : '10px',
 							'text-rendering' : 'optimizeLegibility',
 							'font-feature-settings' : 'kern',
 							'-webkit-font-feature-settings': 'kern',
@@ -53,7 +53,7 @@ define(['backbone', 'quill', 'color'],
 				}, this));
 				var top = $(this.quill.root).find('.line:last').position().top;
 				var height = $(this.quill.root).find('.line:last').height();
-				$('#content').height(Math.max(parseInt(height) + parseInt(top) + parseInt(30), 600));
+				$('#content').height(Math.max(parseInt(height) + parseInt(top) + 100, 600));
 			},
 			setContent: function(model){
 				this.quill.setContents(model.get('defContent'));
@@ -102,6 +102,27 @@ define(['backbone', 'quill', 'color'],
 			},
 			setRange: function(range, source){
 				this.range = range;
+				if(!range) return window.App.Views.Toolbar.resetFontWeightSelectors();
+				var delta = this.quill.getContents(range.start, range.end);
+				var fonts = [];
+				var weights = [];
+				$.each(delta.ops, function(index,op){
+					if(op.attributes.font) fonts.push(op.attributes.font.split('-')[0]);
+					if(op.attributes.font) weights.push(op.attributes.font.split('-')[1]);
+				})
+				var uniqueFonts = _.uniq(fonts);
+				var uniqueWeights = _.uniq(weights);
+				if(uniqueFonts.length == 0 && uniqueWeights.length == 0) return window.App.Views.Toolbar.resetFontWeightSelectors();
+				if(uniqueFonts.length == 1) {
+					window.App.Views.Toolbar.refreshFontName(uniqueFonts[0]);
+				}else{
+					window.App.Views.Toolbar.refreshFontName(null);
+				}
+				if(uniqueWeights.length == 1) {
+					window.App.Views.Toolbar.refreshWeightName(uniqueWeights[0]);
+				}else{
+					window.App.Views.Toolbar.refreshWeightName(null);
+				}
 			},
 			setColor: function(model){
 				var rgb = model.get('color')
@@ -136,10 +157,8 @@ define(['backbone', 'quill', 'color'],
 				ops = currentContent.ops;
 				$.each(ops, _.bind(function(i,j){
 					if(j.value == 'Highlight') return;
-				
 						if(!j.attributes.color || j.attributes.color == 'rgb(0, 0, 0)') ops[i].attributes.color = 'rgb(255, 255, 255)';
 						else if(j.attributes.color == 'rgb(255, 255, 255)') ops[i].attributes.color = 'rgb(0, 0, 0)';
-					
 				},this));
 				this.quill.setContents(ops);
 				this.setSpecials();

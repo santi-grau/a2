@@ -141,7 +141,7 @@ body
 
 #content
   border solid 1px #000
-  padding 0px 25px 35px
+  padding 0px 5px 35px
   height 600px
   position relative
   transition background-color 0.1s
@@ -298,6 +298,11 @@ body
    height 0
    clear both
 
+@media print
+  #content
+    background #666666
+    #editor
+      display none
 
 @media screen and (max-width: 1130px)
   #toolbar

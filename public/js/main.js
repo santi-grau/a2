@@ -86,17 +86,7 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 				this.Views.Options = new Options();
 				this.Views.Editor = new Editor();
 				this.Models.App.set(data);
-				this.Collections.Fonts.on('change:css', this.loadCss, this);
 				this.scrollCheck();
-				// console.log(this)
-			},
-			loadCss: function(model){
-				var sheet = $('<style id="' + model.get('hash') + 'Styles" type="text/css" />').appendTo('head');
-				var css = model.get('css');
-				css.forEach(function(style, i) {
-					var rule = "@font-face { font-family: " + style['font-family'] + "; src: " + style.src + " format('woff'); }";
-					$(sheet).append(rule);
-				});
 			}
 		})
 		window.App = new App();

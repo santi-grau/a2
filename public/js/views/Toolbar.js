@@ -53,7 +53,6 @@ define(['backbone', 'jqueryUiDraggable'],
 				}else{
 					window.App.Models.App.trigger('change:weight', window.App.Models.App, defWeight);
 					var weight = weights.findWhere({ hash : defWeight}).get('name');
-					// this.$('#weightTitle').html(weight).css('font-family' , '"' + fontHash + '-' + defWeight + '"');
 				}
 			},
 			setNewFont: function(fontHash){
@@ -75,6 +74,9 @@ define(['backbone', 'jqueryUiDraggable'],
 				if(!firstSet){
 					this.$('#fontTitle').html(name);
 					this.$('#weightTitle').html(weight);
+				}else{
+					App.Models.App.set('font', 'null');
+					App.Models.App.set('weight', 'null');
 				}
 			},
 			selectWeight: function(e){
@@ -102,6 +104,23 @@ define(['backbone', 'jqueryUiDraggable'],
 			},
 			refreshHeightHanlder: function(size){
 				$('#heightSelector .dragger').css('left', parseInt(size)/$('#heightSelector .dragger').data('range') * $('#heightSelector').width());
+			},
+			refreshFontName: function(hash){
+				if(!hash) return this.$('#fontTitle').html('Select font');
+				App.Models.App.set('font', hash, {silent: true});
+				var font = App.Collections.Fonts.findWhere({ hash : hash });
+				this.$('#fontTitle').html(font.get('name'));
+			},
+			refreshWeightName: function(hash){
+				if(!hash) return this.$('#weightTitle').html('Weight / Style');
+				App.Models.App.set('weight', hash, {silent: true});
+				var font = App.Collections.Fonts.findWhere({ hash : App.Models.App.get('font') });
+				var weight = font.get('weights').findWhere({ hash : hash });
+				this.$('#weightTitle').html(weight.get('name'));
+			},
+			resetFontWeightSelectors: function(){
+				this.$('#fontTitle').html('Select font');
+				this.$('#weightTitle').html('Weight / Style');
 			}
 		});
 		return Toolbar;
