@@ -28,6 +28,7 @@ define(['backbone', 'quill', 'color'],
 						},
 						'body' : {
 							'overflow' : 'hidden',
+							'margin-top' : '40px',
 							'text-rendering' : 'optimizeLegibility',
 							'font-feature-settings' : 'kern',
 							'-webkit-font-feature-settings': 'kern',
@@ -111,6 +112,7 @@ define(['backbone', 'quill', 'color'],
 				}
 			},
 			setSize: function(model, size){
+				console.log(App.Models.App.get('size') + ' ----- ' + App.Models.App.get('height'));
 				this.quill.addStyles({
 					'body' : {
 						'font-size' : size + 'px',
@@ -121,9 +123,10 @@ define(['backbone', 'quill', 'color'],
 				});
 			},
 			setHeight: function(model, height){
+				console.log(App.Models.App.get('size') + ' ----- ' + App.Models.App.get('height'));
 				this.quill.addStyles({
 					'body' : {
-						'line-height' : height + 'px',
+						'line-height' : height + 'px'
 					}
 				});
 			},
