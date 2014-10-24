@@ -40,6 +40,28 @@ define(['backbone', 'quill', 'color'],
 				this.quill.addModule('toolbar', { container: window.App.Views.Toolbar.$el[0] });
 				this.quill.on('selection-change', _.bind(this.setRange, this));
 				this.quill.on('text-change', _.bind(this.setNewText, this));
+				setTimeout(_.bind(function(){
+					this.$('iframe').contents().find("body").bind('contextmenu', _.bind(function(){
+						return  this.blur();
+					}, this));
+					this.$('iframe').contents().find("body").keydown(_.bind(function(e){
+						if(e.keyCode == 91){
+							this.cmdPressed = true;
+						}
+						if(e.keyCode == 80 && this.cmdPressed){
+							return this.blur();
+						}
+					}, this));
+					this.$('iframe').contents().find("body").keyup(_.bind(function(e){
+						if(e.keyCode == 91){
+							this.cmdPressed = false;
+						}
+					}, this))
+				}, this), 1000)
+				
+			},
+			blur: function(){
+				this.quill.setSelection(0,0)
 			},
 			setNewText: function(delta, source){
 				$.each(this.quill.editor.doc.lineMap, _.bind(function(index, line){

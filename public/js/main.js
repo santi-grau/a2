@@ -87,6 +87,7 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 				this.Views.Editor = new Editor();
 				this.Models.App.set(data);
 				this.scrollCheck();
+				$(document).bind('mouseleave', _.bind(this.Views.Editor.blur,this.Views.Editor));
 			}
 		})
 		window.App = new App();

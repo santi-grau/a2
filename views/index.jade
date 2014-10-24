@@ -58,31 +58,32 @@ html
         ul
           li
             a(href="http://www.a2-type.co.uk/html/viewcart.php") View Cart
-    div(id="typetester")
-      ul(id="toolbar", class="clearfix")
-        li(id="fontSelector", class="dropdown")
+    div#typetester
+      ul#toolbar.clearfix
+        li#fontSelector.dropdown
           a#fontTitle(href="javascript:void(0)", data-defTitle="Select font") Select font
           ul#fontList
-        li(id="weightSelector", class="dropdown")
+        li#weightSelector.dropdown
           a#weightTitle(href="javascript:void(0)", data-defTitle="Weight / Style") Weight / Style
           ul#weightList
-        li(id="sizeSelector",class="slider")
+        li#sizeSelector.slider
           span Size
           div(class="dragger",data-attr="size",data-range="200")
-        li(id="heightSelector",class="slider")
+        li#heightSelector.slider
           span Line spacing
-          div(class="dragger",data-attr="height",data-range="200")
-      div(id="content")
+          div.dragger(data-attr="height",data-range="200")
+      div#content
+        div#dashes
         div#loadingFont Loading font...
         div#resizeAlert Resizing...
           div#loaderBar
-        div.loading(id="editor")
-        div(id="options")
-          div(id="colorCircle")
-            a(id="outerCircle")
-              div(id="colorZoom")
-                div(class="inner")
-            div(id="centerCircle")
-          a(href="javascript:void(0)",id="buy")
-          a(href="javascript:void(0)",id="invert")
+        div#editor.loading
+        div#options
+          div#colorCircle
+            a#outerCircle
+              div#colorZoom
+                div.inner
+            div#centerCircle
+          a#buy(href="javascript:void(0)")
+          a#invert(href="javascript:void(0)")
     script(src='js/libs/requirejs/require.js', data-main='js/main.js')
