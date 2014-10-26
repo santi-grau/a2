@@ -46,6 +46,8 @@ define(['backbone', 'quill', 'color'],
 					}, this));
 					this.$('iframe').contents().find("body").keydown(_.bind(function(e){
 						if(e.keyCode == 91){
+							var rangeStart = this.range.start || 0;
+							this.quill.setSelection(rangeStart, rangeStart);
 							this.cmdPressed = true;
 						}
 						if(e.keyCode == 80 && this.cmdPressed){
@@ -65,7 +67,7 @@ define(['backbone', 'quill', 'color'],
 			},
 			setNewText: function(delta, source){
 				$.each(this.quill.editor.doc.lineMap, _.bind(function(index, line){
-					if(this.quill.editor.doc.lineMap.length > 1 && $(line.node).text() == ''){
+					if(this.quill.editor.doc.lines.length > 1 && $(line.node).text() == ''){
 						var ops = line.prev.delta.ops;
 						var attributes = ops[ops.length-2].attributes;
 						$.each(attributes, _.bind(function(attr, value){
