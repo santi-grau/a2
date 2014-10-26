@@ -183,7 +183,6 @@ define(['backbone', 'quill', 'color'],
 						else if(j.attributes.color == 'rgb(255, 255, 255)') ops[i].attributes.color = 'rgb(0, 0, 0)';
 				},this));
 				this.quill.setContents(ops);
-				this.setSpecials();
 			},
 			loadFont: function(model, loading){
 				if(loading) this.$el.addClass('loading');
