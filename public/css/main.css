@@ -184,6 +184,9 @@ body {
 #content.invert #invert {
   border: solid 1px #fff;
 }
+#content.invert #dashes {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi+P//PwMTAxCgEv8BAgwARjcEBVpVFGgAAAAASUVORK5CYII=");
+}
 #content #dashes {
   position: absolute;
   z-index: 2;
