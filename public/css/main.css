@@ -253,6 +253,7 @@ body {
   z-index: 3;
 }
 #content #options.fixed #colorCircle {
+  background: #fff;
   position: fixed;
   top: 12px;
   right: calc(100% - 1033px);

@@ -22,7 +22,7 @@ define(['backbone'],
 				var modelAttr = $(e.target).data('attr');
 				var range = $(e.target).data('range');
 				var val = (ui.position.left)/(target.parent().width() - target.width());
-				this.set(modelAttr, Math.floor(range * val));
+				this.set(modelAttr, Math.floor(range * val) + 12);
 				if(modelAttr == 'height'){
 					this.set('heightRatio', this.get('height') / this.get('size'))
 				}
