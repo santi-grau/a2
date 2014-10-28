@@ -153,18 +153,6 @@ body
     background #000
     #invert
       border solid 1px #ffffff
-    #dashes
-      content url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAYAAACEhIafAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi+P//PwMTAxCgEv8BAgwARjcEBVpVFGgAAAAASUVORK5CYII=")
-  #dashes
-    position absolute
-    z-index 2
-    content url("data:image/png;base64,R0lGODlhAQAQJ4ABAAAAAP///yH5BAEAAAEALAAAAAABABAnAAL/jAOHmtf2lmN0WljxlbrzH4UZOIqb6aHkWbbsm7oxvM52jau6nPM7/bsFe0CfsYgUHpVJIvPpjA6nS2mV2sRCtdbs9esNb8FjcbeMPqu5bPLa3TbH0/O3HI6/6+l5/t7uFwg4WFfYR3ho+KcoyIi4mBgJOdkoWUn5eKmZyenoadkJ+ok5ulkaSiqqmspquuraigo7K1t7evtqm4sby0vrq9u7Oyxc/Et8bByczLzsDAyN/CwdrVzdfD1tTc297Y3dDf6tLV5Ofp6dHo6+rj7ubg7P/t5eT38fb5+PP7/v3w9QnkB9AQkO5HfwX8KCCA06bAhR4UOJERlSvGgx48KNJhM1duRYESRGkR5DfjxpMuVIlCtVlmwJ86VMkjRZzrRZ02XOeAUAADs=")
-    top 0
-    left 0
-    width 100%
-    height 10000px
-    opacity 0.8
-    pointer-events none
   #loadingFont, #resizeAlert
     position absolute
     top 30px
@@ -323,19 +311,20 @@ body
    clear both
 
 
-// @media print
-//   ::selection
-//     opacity 0
-//   #content
-//     display none !important
-//     #dashes
-//       background #FFFFFF
-//     background #666666
-//     display none !important
-//     opacity 0 !important
-//     #editor
-//       display none !important
-//       opacity 0 !important
+@media print
+  #content
+    #dashes
+      position absolute
+      z-index 2
+      content url("data:image/png;base64,R0lGODlhAQAQJ4ABAAAAAP///yH5BAEAAAEALAAAAAABABAnAAL/jAOHmtf2lmN0WljxlbrzH4UZOIqb6aHkWbbsm7oxvM52jau6nPM7/bsFe0CfsYgUHpVJIvPpjA6nS2mV2sRCtdbs9esNb8FjcbeMPqu5bPLa3TbH0/O3HI6/6+l5/t7uFwg4WFfYR3ho+KcoyIi4mBgJOdkoWUn5eKmZyenoadkJ+ok5ulkaSiqqmspquuraigo7K1t7evtqm4sby0vrq9u7Oyxc/Et8bByczLzsDAyN/CwdrVzdfD1tTc297Y3dDf6tLV5Ofp6dHo6+rj7ubg7P/t5eT38fb5+PP7/v3w9QnkB9AQkO5HfwX8KCCA06bAhR4UOJERlSvGgx48KNJhM1duRYESRGkR5DfjxpMuVIlCtVlmwJ86VMkjRZzrRZ02XOeAUAADs=")
+      top 0
+      left 0
+      width 100%
+      height 10000px
+      opacity 0.8
+      pointer-events none
+    &.invert
+      display none
 
 @media screen and (max-width: 1130px)
   #toolbar
