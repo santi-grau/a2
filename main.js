@@ -52,6 +52,9 @@ app.get('/single/:font', function(req, res){
 app.get('/', function(req, res){
 	res.render('index');
 });
+app.get('/converter', function(req, res){
+	res.render('converter');
+});
 
 // ┌────────────────────────────────────────────────────────────────────┐
 // | Init!!
