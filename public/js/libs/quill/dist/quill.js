@@ -6501,7 +6501,6 @@ Wrapper = (function() {
     }
     return length;
   };
-
   Wrapper.prototype.merge = function(node) {
     var $node;
     $node = dom(node);

@@ -109,16 +109,15 @@
 			},
 			{
 				"name" : "Light Italic",
-				"hash" : "light-italic"
+				"hash" : "lightitalic"
 			},
-
 			{
 				"name" : "Regular",
 				"hash" : "regular"
 			},
 			{
 				"name" : "Regular Italic",
-				"hash" : "regular-italic"
+				"hash" : "regularitalic"
 			},
 			{
 				"name" : "Medium",
@@ -126,7 +125,7 @@
 			},
 			{
 				"name" : "Medium Italic",
-				"hash" : "medium-italic"
+				"hash" : "mediumitalic"
 			},
 			{
 				"name" : "SemiBold",
@@ -134,7 +133,7 @@
 			},
 			{
 				"name" : "SemiBold Italic",
-				"hash" : "semibold-italic"
+				"hash" : "semibolditalic"
 			},
 			{
 				"name" : "Bold",
@@ -142,7 +141,7 @@
 			},
 			{
 				"name" : "Bold Italic",
-				"hash" : "bold-italic"
+				"hash" : "bolditalic"
 			},
 			{
 				"name" : "ExtraBold",
@@ -150,7 +149,7 @@
 			},
 			{
 				"name" : "ExtraBold Italic",
-				"hash" : "extrabold-italic"
+				"hash" : "extrabolditalic"
 			},
 			{
 				"name" : "Black",
@@ -158,7 +157,7 @@
 			},
 			{
 				"name" : "Black Italic",
-				"hash" : "black-italic"
+				"hash" : "blackitalic"
 			}
 		],
 		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight","attributes":{"color":"rgb(255, 255, 255)","background":"rgb(127, 73, 0)", "font":"regular-extrabold"}},{"value":" any","attributes":{"color":"rgb(127, 72, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buy.png"}},{"value":"       that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
@@ -177,7 +176,7 @@
 			},
 			{
 				"name" : "Light Italic",
-				"hash" : "light-italic"
+				"hash" : "lightitalic"
 			},
 			{
 				"name" : "Regular",
@@ -185,7 +184,7 @@
 			},
 			{
 				"name" : "Regular Italic",
-				"hash" : "regular-italic"
+				"hash" : "regularitalic"
 			},
 			{
 				"name" : "Medium",
@@ -193,7 +192,7 @@
 			},
 			{
 				"name" : "Medium Italic",
-				"hash" : "medium-italic"
+				"hash" : "mediumitalic"
 			},
 			{
 				"name" : "SemiBold",
@@ -201,7 +200,7 @@
 			},
 			{
 				"name" : "SemiBold Italic",
-				"hash" : "semibold-italic"
+				"hash" : "semibolditalic"
 			},
 			{
 				"name" : "Bold",
@@ -209,7 +208,7 @@
 			},
 			{
 				"name" : "Bold Italic",
-				"hash" : "bold-italic"
+				"hash" : "bolditalic"
 			}
 		],
 		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight","attributes":{"color":"rgb(255, 255, 255)","background":"rgb(127, 73, 0)", "font":"regular-extrabold"}},{"value":" any","attributes":{"color":"rgb(127, 72, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buy.png"}},{"value":"       that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
@@ -368,7 +367,7 @@
 			},
 			{
 				"name" : "Regular Italic",
-				"hash" : "regular-italic"
+				"hash" : "regularitalic"
 			},
 			{
 				"name" : "Medium",
@@ -376,7 +375,7 @@
 			},
 			{
 				"name" : "Medium Italic",
-				"hash" : "medium-italic"
+				"hash" : "mediumitalic"
 			},
 			{
 				"name" : "Bold",
@@ -384,7 +383,7 @@
 			},
 			{
 				"name" : "Bold Italic",
-				"hash" : "bold-italic"
+				"hash" : "bolditalic"
 			}
 		],
 		"defContent" : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight","attributes":{"color":"rgb(255, 255, 255)","background":"rgb(127, 73, 0)", "font":"regular-extrabold"}},{"value":" any","attributes":{"color":"rgb(127, 72, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buy.png"}},{"value":"       that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
