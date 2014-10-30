@@ -16,6 +16,6 @@ html
     link(rel='stylesheet', id='mainStylesheet' href='/css/converter.css')
     script(src="js/libs/modernizr/modernizr.js")
   body
-    div#drop
+    div#drop(ng-controller="dropFile", class="{{state}}", droppable="true")
       div#heart
-    // script(src='js/libs/requirejs/require.js', data-main='js/main.js')
+    script(src='js/libs/requirejs/require.js', data-main='js/converter.js')
