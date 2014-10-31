@@ -14,7 +14,7 @@ var fs = require('fs');
 // | Initialize vars + constants
 // └────────────────────────────────────────────────────────────────────┘
 var app = express();
-var port = Number(process.env.PORT || 5000);
+var port = Number(process.env.PORT || 3000);
 
 // ┌────────────────────────────────────────────────────────────────────┐
 // | App setup

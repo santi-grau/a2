@@ -21,20 +21,25 @@ define(['angularAMD'], function (angularAMD) {
 			$scope.$apply(function(){ $scope.state = ''; })
 		};
 		$scope.fileLoadEnd = function(data){
-			console.log(data.target)
+			console.log(data)
 			var xmlhttp=new XMLHttpRequest();
-			xmlhttp.open("POST","http://ec2-54-69-52-7.us-west-2.compute.amazonaws.com/data");
+			xmlhttp.open("POST","http://ec2-54-69-52-7.us-west-2.compute.amazonaws.com");
+			//xmlhttp.open("POST","http://localhost:5000");
 			xmlhttp.send(data.target.result);
 			xmlhttp.onreadystatechange=function() {
+				
 				if (xmlhttp.readyState==4 && xmlhttp.status==200){
+					console.log(xmlhttp)
 					console.log('data received----------')
 					console.log(xmlhttp.responseText);
 					console.log('font----------')
-					var data = JSON.parse( xmlhttp.responseText );
-					console.log(data)
+					// var data = JSON.parse( xmlhttp.responseText );
+					// console.log(data)
 					setTimeout(function(){
 						// $scope.$apply(function(){ $scope.state = ''; });
 					}, 2000)
+				}else if (xmlhttp.readyState==0 || xmlhttp.status==0){
+					console.log(xmlhttp)
 				}
 			}
 		}
