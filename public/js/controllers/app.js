@@ -6,6 +6,7 @@ define(['angularAMD'], function (angularAMD) {
 			var dt = e.dataTransfer;
 			var files = dt.files;
 			for (var i=0; i < files.length; i++) {
+				if(files[i].name.indexOf('.otf') == -1) return alert('Please use a OTF font file');
 				var reader = new FileReader();
 				var file = files[i];
 				reader.onloadend = ( function(file) {
@@ -32,6 +33,7 @@ define(['angularAMD'], function (angularAMD) {
 			xmlhttp.onreadystatechange=function() {
 				if (xmlhttp.readyState==4 && xmlhttp.status==200){
 					$scope.$apply(function(){ $scope.state = ''; });
+					$scope.$apply(function(){ $scope.heartType = 'small'; });
 					$scope.addSpec(xmlhttp.responseText, file);
 				}
 			}
@@ -60,18 +62,17 @@ define(['angularAMD'], function (angularAMD) {
 				});
 				console.log(fontSet.join());
 				sheet.insertRule('#' + specId + ' { font-family:"' + fontSet.join() + '"; }', 1);
+				sheet.insertRule('#' + specId + ' textarea { font-family:"' + fontSet.join() + '"; }', 1);
 			});
-			
-
-
 			$scope.$apply(function(){
 				$scope.specs.push({
-					text: file.name,
+					title: file.name,
 					id : specId
 				})
 			});
 		} 
 		$scope.state = '';
+		$scope.heartType = '';
 		$scope.specs = [];
 	}]);
 	App.directive('droppable', function () {

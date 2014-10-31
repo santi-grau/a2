@@ -17,13 +17,14 @@ html
     script(src="js/libs/modernizr/modernizr.js")
   body
     div#drop(ng-controller="dropFile", class="{{state}}", droppable="true")
-      div#heart
+      div#heart(class="{{heartType}}")
       div#specs
         div.spec(ng-repeat="spec in specs", id="{{spec.id}}")
-          span {{spec.text}}<br>
-          | ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-          | abcdefghijklmnopqrstuvwxyz<br>
-          | 1234567890<br>
-          | áéíóúàèìòùÁÉÍÓÚÀÈÌÒÙ<br>
-          | ¡!¿?.:-;,^*çÇñÑ"·$%&amp;/()=´}{}
+          div {{spec.title}}
+          textarea
+            | ABCDEFGHIJKLMNOPQRSTUVWXYZ
+            | abcdefghijklmnopqrstuvwxyz
+            | 1234567890
+            | áéíóúàèìòùÁÉÍÓÚÀÈÌÒÙ
+            | ¡!¿?.:-;,^*çÇñÑ"·$%&amp;/()=´}{}
     script(src='js/libs/requirejs/require.js', data-main='js/converter.js')
