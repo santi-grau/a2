@@ -7,7 +7,12 @@ define(['angularAMD'], function (angularAMD) {
 			var files = dt.files;
 			for (var i=0; i < files.length; i++) {
 				var reader = new FileReader();
-				reader.addEventListener('loadend', $scope.fileLoadEnd, false);
+				var file = files[i];
+				reader.onloadend = ( function(file) {
+					return function(data) {
+						$scope.fileLoadEnd(data, file)
+					};
+				})(files[i]);
 				reader.readAsArrayBuffer(files[i]);
 			}
 			$scope.$apply(function(){ $scope.state = 'loading'; });
@@ -20,30 +25,54 @@ define(['angularAMD'], function (angularAMD) {
 			(e && e.preventDefault) && e.preventDefault();
 			$scope.$apply(function(){ $scope.state = ''; })
 		};
-		$scope.fileLoadEnd = function(data){
-			console.log(data)
+		$scope.fileLoadEnd = function(data, file){
 			var xmlhttp=new XMLHttpRequest();
 			xmlhttp.open("POST","http://ec2-54-69-52-7.us-west-2.compute.amazonaws.com");
-			//xmlhttp.open("POST","http://localhost:5000");
 			xmlhttp.send(data.target.result);
 			xmlhttp.onreadystatechange=function() {
-				
 				if (xmlhttp.readyState==4 && xmlhttp.status==200){
-					console.log(xmlhttp)
-					console.log('data received----------')
-					console.log(xmlhttp.responseText);
-					console.log('font----------')
-					// var data = JSON.parse( xmlhttp.responseText );
-					// console.log(data)
-					setTimeout(function(){
-						// $scope.$apply(function(){ $scope.state = ''; });
-					}, 2000)
-				}else if (xmlhttp.readyState==0 || xmlhttp.status==0){
-					console.log(xmlhttp)
+					$scope.$apply(function(){ $scope.state = ''; });
+					$scope.addSpec(xmlhttp.responseText, file);
 				}
 			}
 		}
+		$scope.addSpec = function(result, file){
+			var specId = 'spec' + (new Date).getTime();
+			console.log('font----------> ' + file.name)
+			var data = JSON.parse( result );
+			var sheet = (function() {
+				var style = document.createElement("style");
+				style.appendChild(document.createTextNode(""));
+				style.id = specId;
+				document.head.appendChild(style);
+				return style.sheet;
+			})();
+			data.forEach(function(i){
+				var format;
+				for(var k in i) format = k ;
+				console.log(format);
+				if(format == 'otf') return;
+				var fontSet = [];
+				i[format].forEach(function(j){
+					var fontId = 'f' + (new Date).getTime() + Math.floor(Math.random() * 1000000);
+					sheet.insertRule('@font-face { font-family:"' + fontId + '"; src:url("' + j + '"); }', 0);
+					fontSet.push('"'+fontId+'"');
+				});
+				console.log(fontSet.join());
+				sheet.insertRule('#' + specId + ' { font-family:"' + fontSet.join() + '"; }', 1);
+			});
+			
+
+
+			$scope.$apply(function(){
+				$scope.specs.push({
+					text: file.name,
+					id : specId
+				})
+			});
+		} 
 		$scope.state = '';
+		$scope.specs = [];
 	}]);
 	App.directive('droppable', function () {
 		return {
