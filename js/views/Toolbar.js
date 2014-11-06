@@ -24,7 +24,7 @@ define(['backbone', 'jqueryUiDraggable'],
 				App.Views.Editor.setNewText();
 			},
 			addFontMenuItem: function(font){
-				var fontPartial = _.template(App.Models.App.get('fontPartial'));
+				var fontPartial = _.template(App.Models.App.get('font_partial'));
 				var fontElement = fontPartial({data: font.toJSON()});
 				$(fontElement).appendTo('#fontList');
 			},
@@ -59,12 +59,12 @@ define(['backbone', 'jqueryUiDraggable'],
 				var font = App.Collections.Fonts.find(function(m){
 					if(m.get('weights').length) return (m.get('hash') == fontHash);
 				});
-				if(!font) return alert('* Font is not avaialbe in prototype');
+				if(!font) return alert('* Font is not avaialbe...');
 				var weights = font.get('weights');
 				var name = font.get('name');
 				var defWeight = font.get('defWeight');
 				var weight = weights.findWhere({ hash : defWeight}).get('name');
-				var weightPartial = _.template(App.Models.App.get('weightPartial'));
+				var weightPartial = _.template(App.Models.App.get('weight_partial'));
 				var partial = weightPartial({data: weights.toJSON()});
 				var firstSet = (App.Models.App.get('font') == null);
 				App.Models.App.set('font', fontHash);

@@ -5,11 +5,11 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 	function(Backbone, Font, Weights){
 		var Fonts = Backbone.Collection.extend({
 			model: Font,
+			url: '/fonts.php',
 			initialize: function(){
-				window.App.Models.App.on('change:fonts', this.setFonts, this);
 			},
-			setFonts: function(model, fonts){
-				$.each(fonts, _.bind(function(i,j){
+			setFonts: function(data){
+				$.each(data, _.bind(function(i,j){
 					this.add({
 						name : j.name,
 						hash : j.hash,
@@ -19,7 +19,8 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 						defHeight : j.defHeight,
 						defWeight : j.defWeight,
 						buypage : j.buypage,
-						heightRatio : j.defHeight / j.defSize
+						heightRatio : j.defHeight / j.defSize,
+						order : j.order
 					})
 				},this));
 			}

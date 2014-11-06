@@ -85,7 +85,9 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 				this.Views.Toolbar = new Toolbar();
 				this.Views.Options = new Options();
 				this.Views.Editor = new Editor();
-				this.Models.App.set(data);
+				
+				this.Collections.Fonts.setFonts(data);
+				this.Models.App.set('fonts', data);
 				this.scrollCheck();
 				$(document).bind('mouseleave', _.bind(this.Views.Editor.blur,this.Views.Editor));
 			}
@@ -93,4 +95,3 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 		window.App = new App();
 	}
 );
-console.log('a')

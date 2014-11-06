@@ -36,7 +36,7 @@ define(['backbone'],
 						return xhr;
 					},this),
 					type: 'GET',
-					url: '/single/'+font,
+					url: '/fonts/' + font + '.json',
 					success: _.bind(function(data){
 						$('#loadingFont').removeClass('active');
 						this.set({

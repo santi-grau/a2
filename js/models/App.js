@@ -1,7 +1,7 @@
 // ┌────────────────────────────────────────────────────────────────────┐
 // | App.js
 // └────────────────────────────────────────────────────────────────────┘
-define(['backbone', 'partials/font_partial.js', 'partials/weight_partial.js'],
+define(['backbone', 'text!partials/font_partial.js', 'text!partials/weight_partial.js'],
 	function(Backbone, font_partial, weight_partial){
 		var App = Backbone.Model.extend({
 			defaults: {
