@@ -1,35 +1,28 @@
-<div class="panel panel-default">
-	<div class="panel-heading" role="tab" id="headingTwo">
-		<h4 class="panel-title" class="clearfix">
-			<a data-toggle="collapse" data-parent="#accordion" href="#<%= data.hash %>" aria-expanded="true" aria-controls="<%= data.hash %>">
-				<%= data.name %>
-			</a>
-			<span class="badge"><%= data.weights.length %></span>
-		</h4>
+<div class="panel panel-default font" data-hash="<%= data.hash %>">
+	<div class="panel-heading" role="tab" id="heading<%= data.hash %>">
+		<div class="row">
+			<div class="col-md-1">
+				<a data-toggle="collapse" data-parent="#accordion" href="#<%= data.hash %>" aria-expanded="true" aria-controls="<%= data.hash %>" class="glyphicon glyphicon-circle-arrow-down"></a>
+				<a class="glyphicon glyphicon-th-list sort"></a>
+			</div>
+			<div class="col-md-8">
+				<h4 class="panel-title" class="clearfix">
+					<input value="<%= data.name %>" maxlength="30">
+				</h4>
+			</div>
+			<div class="col-md-3 utils">
+				<a href="javascritp:void(0)" class="status btn btn-<% if(data.status){ %>success<% }else{ %>default<% } %> btn-xs">
+					<span class="success">Enabled</span>
+					<span class="default">Disabled</span>
+				</a>
+				<a href="javascritp:void(0)" class="delete btn btn-danger btn-xs">Delete</a>
+				<span class="badge"><%= data.weights.length %></span>
+			</div>
+		</div>
 	</div>
-	<div id="<%= data.hash %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+	<div id="<%= data.hash %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= data.hash %>">
 		<div class="panel-body">
-			<ul class="sortable">
-				<li class="clearfix" >
-					<span class="col-xs-10">
-						<input value="Weight 1" maxlength="30">
-					</span>
-					<a href="javascritp:void(0)" class="btn btn-success btn-xs">
-						Enabled
-					</a>
-					<a href="javascritp:void(0)" class="btn btn-danger btn-xs">
-						Delete
-					</a>
-				</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-				<li>Item 4</li>
-				<li>Item 5</li>
-				<li>Item 6</li>
-				<li>Item 7</li>
-				<li>Item 8</li>
-				<li>Item 9</li>
-			</ul>
+			<ul class="sortable weights"></ul>
 		</div>
 	</div>
 </div>

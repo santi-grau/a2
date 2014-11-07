@@ -8,7 +8,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Boing",
@@ -19,7 +20,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Dane",
@@ -30,7 +32,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Grot 10",
@@ -41,7 +44,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Italian Sans",
@@ -52,7 +56,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Klampenborg",
@@ -63,7 +68,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "London",
@@ -74,7 +80,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "New Grotesk!",
@@ -85,7 +92,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "New Rail Alphabet",
@@ -96,7 +104,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Recognition",
@@ -107,7 +116,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Regular",
@@ -188,7 +198,9 @@
 		"defSize" : 141,
 		"defHeight" : 120,
 		"defWeight" : "light",
-		"buypage" : "http://www.a2-type.co.uk/html/regular_light.html"
+		"buypage" : "http://www.a2-type.co.uk/html/regular_light.html",
+		"order" : 0,
+		"status" : true
 	},
 	{
 		"name" : "Antwerp",
@@ -249,7 +261,9 @@
 		"defSize" : 141,
 		"defHeight" : 120,
 		"defWeight" : "light",
-		"buypage" : "http://www.a2-type.co.uk/html/antwerp.html"
+		"buypage" : "http://www.a2-type.co.uk/html/antwerp.html",
+		"order" : 0,
+		"status" : true
 	},
 	{
 		"name" : "FM",
@@ -260,7 +274,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Kunstuff",
@@ -271,7 +286,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Monday",
@@ -282,7 +298,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Outsiders",
@@ -293,7 +310,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Vogue Floral",
@@ -304,7 +322,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Vogue Paris",
@@ -315,7 +334,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Signature",
@@ -326,7 +346,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "A2 BEckett",
@@ -337,7 +358,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Aveny-T",
@@ -348,7 +370,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Cph. Tram",
@@ -359,7 +382,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "CWM",
@@ -370,7 +394,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Ergonomics",
@@ -381,7 +406,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Eyes Lies",
@@ -392,7 +418,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Outsiders",
@@ -403,7 +430,8 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	},
 	{
 		"name" : "Typewriter",
@@ -444,7 +472,9 @@
 		"defSize" : 141,
 		"defHeight" : 120,
 		"defWeight" : "regular",
-		"buypage" : "http://www.a2-type.co.uk/html/typewriter.html"
+		"buypage" : "http://www.a2-type.co.uk/html/typewriter.html",
+		"order" : 0,
+		"status" : true
 	},
 	{
 		"name" : "Flowers",
@@ -455,6 +485,7 @@
 		"defHeight" : 120,
 		"defWeight" : null,
 		"buypage" : null,
-		"order" : 0
+		"order" : 0,
+		"status" : false
 	}
 ]

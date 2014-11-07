@@ -1,8 +1,8 @@
 // ┌────────────────────────────────────────────────────────────────────┐
 // | Font.js
 // └────────────────────────────────────────────────────────────────────┘
-define(['backbone'],
-	function(Backbone){
+define(['backbone', 'collections/Weights'],
+	function(Backbone, Weights){
 		var Font = Backbone.Model.extend({
 			defaults: {
 				weights : null,
@@ -16,7 +16,11 @@ define(['backbone'],
 				css : null,
 				loading : false,
 				loaded : 0,
-				heightRatio : null
+				heightRatio : null,
+				order: null
+			},
+			initialize: function(){
+				this.set('weights', new Weights(this.get('weights')));
 			},
 			loadFont : function(font){
 				if(this.get('css')) return;

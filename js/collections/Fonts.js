@@ -6,23 +6,35 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 		var Fonts = Backbone.Collection.extend({
 			model: Font,
 			url: '/fonts.php',
-			initialize: function(){
+			fetch : function() {
+				this.on('destroy', this.removeFont, this);
+				$.getJSON( this.url, _.bind(this.setFonts, this));
+			},
+			updatePositions: function(positions){
+				_.each(positions, _.bind(function(position){
+					var model = this.findWhere({hash:position.hash});
+					model.set('order', position.position)
+				}, this));
 			},
 			setFonts: function(data){
 				$.each(data, _.bind(function(i,j){
-					this.add({
+					var model = this.add({
 						name : j.name,
 						hash : j.hash,
-						weights : new Weights(j.weights),
 						defContent : j.defContent,
 						defSize : j.defSize,
 						defHeight : j.defHeight,
 						defWeight : j.defWeight,
 						buypage : j.buypage,
 						heightRatio : j.defHeight / j.defSize,
-						order : j.order
-					})
+						order : j.order,
+						status: j.status
+					});
+					model.get('weights').add(j.weights)
 				},this));
+			},
+			removeFont: function(a){
+				console.log(a)
 			}
 		});
 		return Fonts;

@@ -71,11 +71,22 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 			Collections: {},
 			el : window,
 			initialize: function(){
-				$('.sortable.font').sortable({
+				$('.sortable.fonts').sortable({
 					axis: 'y',
-					cancel: "a",
-					handle: ".panel-heading"
+					handle: '.sort',
+					update: _.bind(this.updateFontsPositions, this),
+					change: _.bind(this.updateFontOrder, this)
 				});
+			},
+			updateFontsPositions: function(event, ui){
+				var positions = [];
+				$('.font').each(function(i){
+					positions.push({hash: $(this).data('hash'), position: $('.font').index($(this))});
+				})
+				window.App.Collections.Fonts.updatePositions(positions);
+			},
+			updateFontOrder: function(){
+				
 			},
 			addFont: function(model){
 				var fontPartial = _.template(FontView);
@@ -86,6 +97,6 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 		window.App = new App();
 		window.App.Collections.Fonts = new Fonts();
 		window.App.Collections.Fonts.on('add', window.App.addFont, this);
-		$.getJSON('data.json', _.bind(window.App.Collections.Fonts.setFonts, window.App.Collections.Fonts));
+		window.App.Collections.Fonts.fetch();
 	}
 );

@@ -1,4 +1,5 @@
 <?php
 	$file = 'data.json';
-	echo json_encode(readfile($file));
+	$content = file_get_contents($file);
+	echo $content;
 ?>
