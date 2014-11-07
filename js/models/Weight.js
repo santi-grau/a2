@@ -7,7 +7,9 @@ define(['backbone'],
 			defaults: {
 				name : null,
 				hash : null,
-				file : null
+				file : null,
+				order: null,
+				status : null
 			}
 		});
 		return Weight;
