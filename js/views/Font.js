@@ -5,15 +5,15 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 	function(Backbone, WeightView, Weight){
 		var Font = Backbone.View.extend({
 			events: {
-				'click .status': 'changeStatus',
-				'click .delete': 'deleteRequest'
+				'click .status:eq(0)': 'changeStatus',
+				'click .delete:eq(0)': 'deleteRequest'
 			},
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
 				this.model.get('weights').on('add', this.addWeight, this);
 				$('.sortable.weights').sortable({
 					axis: 'y',
-					cancel: "input"
+					handle: ".sort"
 				});
 			},
 			changeStatus: function(){

@@ -78,15 +78,56 @@ body{
 			}
 			.panel-collapse{
 				.panel-body{
-					.specimen{
-						padding-bottom: 10px;
-						font-size: 24px;
-					}
 					.sortable{
 						list-style-type: none;
 						margin: 0;
 						padding: 0;
 						li{
+							.row{
+								.col-md-1{
+									.sort{
+										color: inherit;
+										text-decoration: none;
+										font-size: 15px;
+										margin-left: 10px;
+										cursor: -webkit-grab;
+										cursor: -moz-grab;
+									}
+								}
+								.col-md-2{
+									text-align: right;
+								}
+								.utils{
+									text-align: right;
+									a{
+										span{
+											display: none;
+										}
+										&.btn-success{
+											span.success{
+												display: block;
+											}
+										}
+										&.btn-default{
+											span.default{
+												display: block;
+											}
+										}
+									}
+								}
+							}
+							&.ui-sortable-helper{
+								.row{
+									.col-md-1{
+										.glyphicon{
+											&.sort{
+												cursor: -webkit-grabbing;
+												cursor: -moz-grabbing;
+											}
+										}
+									}
+								}
+							}
 							border-bottom: dashed 1px #999999;
 							padding: 8px 0;
 							cursor: pointer;
@@ -101,8 +142,7 @@ body{
 								}
 							}
 							.btn{
-								float: right;
-								margin-left: 10px;
+								
 							}
 							&:first-child{
 								padding-top: 0;

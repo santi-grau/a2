@@ -92,11 +92,16 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 				var fontPartial = _.template(FontView);
 				var fontView = $(fontPartial({ data : model.toJSON() }));
 				var font = new Font({ model : model, el : $(fontView).appendTo('#accordion') });
+			},
+			removeFont: function(model, attr){
+				console.log(model.get('hash'))
+				$('.font[data-hash='+model.get('hash')+']').remove();
 			}
 		})
 		window.App = new App();
 		window.App.Collections.Fonts = new Fonts();
 		window.App.Collections.Fonts.on('add', window.App.addFont, this);
+		window.App.Collections.Fonts.on('destroy', window.App.removeFont, this);
 		window.App.Collections.Fonts.fetch();
 	}
 );

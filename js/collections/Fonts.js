@@ -5,7 +5,7 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 	function(Backbone, Font, Weights){
 		var Fonts = Backbone.Collection.extend({
 			model: Font,
-			url: '/fonts.php',
+			url: 'fonts.php',
 			fetch : function() {
 				this.on('destroy', this.removeFont, this);
 				$.getJSON( this.url, _.bind(this.setFonts, this));
@@ -32,9 +32,6 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 					});
 					model.get('weights').add(j.weights)
 				},this));
-			},
-			removeFont: function(a){
-				console.log(a)
 			}
 		});
 		return Fonts;
