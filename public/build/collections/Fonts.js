@@ -1,0 +1,1 @@
+define(["backbone","models/Font","collections/Weights"],function(e,t,n){var r=e.Collection.extend({model:t,initialize:function(){},buildFonts:function(e){$.each(e,_.bind(function(e,t){this.add({name:t.name,weights:new n(t.weights),defContent:t.defContent,defSize:t.defSize,defHeight:t.defHeight})},this))}});return r});
