@@ -126,84 +126,98 @@
 			{
 				"name" : "Light",
 				"hash" : "light",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Light Italic",
 				"hash" : "lightitalic",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Regular",
 				"hash" : "regular",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Regular Italic",
 				"hash" : "regularitalic",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Medium",
 				"hash" : "medium",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Medium Italic",
 				"hash" : "mediumitalic",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "SemiBold",
 				"hash" : "semibold",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "SemiBold Italic",
 				"hash" : "semibolditalic",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Bold",
 				"hash" : "bold",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Bold Italic",
 				"hash" : "bolditalic",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "ExtraBold",
 				"hash" : "extrabold",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "ExtraBold Italic",
 				"hash" : "extrabolditalic",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Black",
 				"hash" : "black",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Black Italic",
 				"hash" : "blackitalic",
+				"files" : [],
 				"order": 0,
 				"status" : true
 			}
@@ -223,60 +237,70 @@
 			{
 				"name" : "Light",
 				"hash" : "light",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Light Italic",
 				"hash" : "lightitalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Regular",
 				"hash" : "regular",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Regular Italic",
 				"hash" : "regularitalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Medium",
 				"hash" : "medium",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Medium Italic",
 				"hash" : "mediumitalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "SemiBold",
 				"hash" : "semibold",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "SemiBold Italic",
 				"hash" : "semibolditalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Bold",
 				"hash" : "bold",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Bold Italic",
 				"hash" : "bolditalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			}
@@ -464,36 +488,42 @@
 			{
 				"name" : "Regular",
 				"hash" : "regular",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Regular Italic",
 				"hash" : "regularitalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Medium",
 				"hash" : "medium",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Medium Italic",
 				"hash" : "mediumitalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Bold",
 				"hash" : "bold",
+				"files": [],
 				"order": 0,
 				"status" : true
 			},
 			{
 				"name" : "Bold Italic",
 				"hash" : "bolditalic",
+				"files": [],
 				"order": 0,
 				"status" : true
 			}
