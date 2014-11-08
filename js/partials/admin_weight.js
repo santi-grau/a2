@@ -4,7 +4,7 @@
 			<a class="glyphicon glyphicon-th-list sort"></a>
 		</div>
 		<div class="col-md-9">
-			<input value="<%= data.name %>" maxlength="30">
+			<input class="weightName" value="<%= data.name %>" maxlength="30">
 		</div>
 		<div class="col-md-2 utils">
 			<a href="javascritp:void(0)" class="status btn btn-<% if(data.status){ %>success<% }else{ %>default<% } %> btn-xs">

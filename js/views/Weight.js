@@ -6,7 +6,8 @@ define(['backbone'],
 		var Weight = Backbone.View.extend({
 			events: {
 				'click .status': 'changeStatus',
-				'click .delete': 'deleteRequest'
+				'click .delete': 'deleteRequest',
+				'keyup .weightName' : 'stopTyping'
 			},
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
@@ -31,6 +32,13 @@ define(['backbone'],
 			},
 			removeWeight: function(){
 				this.$el.remove();
+			},
+			stopTyping: function(){
+				if(this.typingInterval) clearTimeout(this.typingInterval);
+				this.typingInterval = setTimeout(_.bind(this.saveName, this), 1000);
+			},
+			saveName: function(){
+				this.model.set('name', this.$('.weightName').val());
 			}
 		});
 		return Weight;

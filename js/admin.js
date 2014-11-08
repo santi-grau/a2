@@ -104,13 +104,15 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 			},
 			drop: function(e){
 				(e && e.preventDefault) && e.preventDefault();
-				alert('create font!');
+				$('body').removeClass('dragging');
 			},
 			dragover: function(e){
 				(e && e.preventDefault) && e.preventDefault();
+				$('body').addClass('dragging');
 			},
 			dragleave: function(e){
 				(e && e.preventDefault) && e.preventDefault();
+				$('body').removeClass('dragging');
 			}
 		})
 		window.App = new App();

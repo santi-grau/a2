@@ -9,7 +9,8 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 				'click .delete:eq(0)': 'deleteRequest',
 				'drop' : 'drop',
 				'dragover' : 'dragover',
-				'dragleave' : 'dragleave'
+				'dragleave' : 'dragleave',
+				'keyup .fontName' : 'stopTyping'
 			},
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
@@ -89,7 +90,6 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 					data: {action: 'saveFonts', data : files},
 					success: function(data){
 						weight.set('files', data);
-						console.log(window.App.Collections.Fonts)
 					}
 				});
 			},
@@ -100,6 +100,13 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 			dragleave: function(e){
 				(e && e.preventDefault) && e.preventDefault();
 				this.$el.removeClass('dragging-over');
+			},
+			stopTyping: function(){
+				if(this.typingInterval) clearTimeout(this.typingInterval);
+				this.typingInterval = setTimeout(_.bind(this.saveName, this), 1000);
+			},
+			saveName: function(){
+				this.model.set('name', this.$('.fontName').val());
 			}
 		});
 		return Font;

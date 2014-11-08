@@ -7,7 +7,7 @@
 			</div>
 			<div class="col-md-8">
 				<h4 class="panel-title" class="clearfix">
-					<input value="<%= data.name %>" maxlength="30">
+					<input class="fontName" value="<%= data.name %>" maxlength="30">
 				</h4>
 			</div>
 			<div class="col-md-3 utils">
