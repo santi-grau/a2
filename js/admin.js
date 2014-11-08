@@ -104,6 +104,7 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 			},
 			drop: function(e){
 				(e && e.preventDefault) && e.preventDefault();
+				alert('create font!');
 			},
 			dragover: function(e){
 				(e && e.preventDefault) && e.preventDefault();

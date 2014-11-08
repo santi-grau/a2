@@ -77,7 +77,7 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 				}
 			},
 			makeWeight: function(name, hash, files){
-				this.model.get('weights').add({
+				var weight = this.model.get('weights').add({
 					name : name,
 					hash : hash,
 					order: 0,
@@ -86,9 +86,10 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 				$.ajax({
 					type: "POST",
 					url: "fonts.php",
-					data: {data : files},
+					data: {action: 'saveFonts', data : files},
 					success: function(data){
-						console.log(data)
+						weight.set('files', data);
+						console.log(window.App.Collections.Fonts)
 					}
 				});
 			},
