@@ -70,6 +70,11 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 			Views : {},
 			Collections: {},
 			el : window,
+			events: {
+				'drop' : 'drop',
+				'dragover' : 'dragover',
+				'dragleave' : 'dragleave'
+			},
 			initialize: function(){
 				$('.sortable.fonts').sortable({
 					axis: 'y',
@@ -96,6 +101,15 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 			removeFont: function(model, attr){
 				console.log(model.get('hash'))
 				$('.font[data-hash='+model.get('hash')+']').remove();
+			},
+			drop: function(e){
+				(e && e.preventDefault) && e.preventDefault();
+			},
+			dragover: function(e){
+				(e && e.preventDefault) && e.preventDefault();
+			},
+			dragleave: function(e){
+				(e && e.preventDefault) && e.preventDefault();
 			}
 		})
 		window.App = new App();

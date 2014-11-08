@@ -20,7 +20,7 @@ define(['backbone'],
 				else this.$('.status').addClass('btn-default').removeClass('btn-success');
 			},
 			deleteRequest: function(){
-				var r = confirm("Are you sure you want to delete this weight: " + this.model.get('name'));
+				var r = confirm("Are you sure you want to delete this weight (" + this.model.get('name') + ") ?");
 				if (r) this.model.destroy();
 			},
 			addWeight: function(model){

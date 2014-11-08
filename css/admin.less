@@ -6,6 +6,23 @@ body{
 #fontlist{
 	#accordion{
 		.panel{
+			&.dragging-over{
+				.panel-heading{
+					background-color: #c5c5c5;
+				}
+			}
+			&.empty{
+				.panel-collapse{
+					.panel-body{
+						.weights{
+							display: none;
+						}
+						.empty-msg{
+							display: block;
+						}
+					}
+				}
+			}
 			&.ui-sortable-helper{
 				.panel-heading{
 					.row{
@@ -78,6 +95,12 @@ body{
 			}
 			.panel-collapse{
 				.panel-body{
+					.weights{
+						display: block;
+					}
+					.empty-msg{
+						display: none;
+					}
 					.sortable{
 						list-style-type: none;
 						margin: 0;
@@ -130,7 +153,6 @@ body{
 							}
 							border-bottom: dashed 1px #999999;
 							padding: 8px 0;
-							cursor: pointer;
 							input{
 								width: 100%;
 								margin: 0;

@@ -7,7 +7,7 @@ define(['backbone'],
 			defaults: {
 				name : null,
 				hash : null,
-				file : null,
+				files : null,
 				order: null,
 				status : null
 			}

@@ -1,4 +1,4 @@
-<div class="panel panel-default font" data-hash="<%= data.hash %>">
+<div class="panel panel-default font <% if(data.weights.length == 0){ %>empty <% } %>" data-hash="<%= data.hash %>" droppable="true">
 	<div class="panel-heading" role="tab" id="heading<%= data.hash %>">
 		<div class="row">
 			<div class="col-md-1">
@@ -22,6 +22,7 @@
 	</div>
 	<div id="<%= data.hash %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= data.hash %>">
 		<div class="panel-body">
+			<span class="empty-msg">No weights available</span>
 			<ul class="sortable weights"></ul>
 		</div>
 	</div>
