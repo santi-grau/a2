@@ -96,27 +96,30 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 			addFont: function(model){
 				var fontPartial = _.template(FontView);
 				var fontView = $(fontPartial({ data : model.toJSON() }));
-				var font = new Font({ model : model, el : $(fontView).appendTo('#accordion') });
+				if(model.get('order') !== -1) fontView.appendTo('#accordion');
+				else fontView.prependTo('#accordion');
+				new Font({ model : model, el : fontView});
 			},
 			removeFont: function(model, attr){
-				console.log(model.get('hash'))
 				$('.font[data-hash='+model.get('hash')+']').remove();
 			},
 			drop: function(e){
 				(e && e.preventDefault) && e.preventDefault();
 				$('body').removeClass('dragging');
-				this.Collections.Fonts.add({
+				var model = this.Collections.Fonts.add({
 					name : 'New Font',
-					hash : 'new_font',
+					hash : 'new_font_'+(new Date).getTime(),
 					defSize : 140,
 					defHeight : 120,
-					order: 0
+					order: -1
 				});
+				var dt = e.originalEvent.dataTransfer;
+				model.uploadFonts(dt.files);
 				console.log(this.Collections.Fonts)
 			},
 			dragover: function(e){
 				(e && e.preventDefault) && e.preventDefault();
-				$('body').addClass('dragging');
+				if($(e.target).prop("tagName").toLowerCase() == 'html') $('body').addClass('dragging');
 			},
 			dragleave: function(e){
 				(e && e.preventDefault) && e.preventDefault();

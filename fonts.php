@@ -29,9 +29,8 @@
 		return json_encode($fonts);
 	}
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		if($_POST['action'] == 'saveFonts'){
-			echo saveFonts($data);
-		}
+		if($_POST['action'] == 'saveFonts') echo saveFonts($data);
+		if($_POST['action'] == 'deleteFonts') echo deleteFonts($data);
 	}else{
 		$file = 'data.json';
 		$content = file_get_contents($file);

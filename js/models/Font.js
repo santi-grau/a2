@@ -22,6 +22,48 @@ define(['backbone', 'collections/Weights'],
 			initialize: function(){
 				this.set('weights', new Weights(this.get('weights')));
 			},
+			uploadFonts: function(files){
+				for (var i=0; i < files.length; i++) {
+					if(files[i].name.indexOf('.otf') == -1) return alert('Please use an OTF font file');
+					var reader = new FileReader();
+					var file = files[i];
+					var self = this;
+					reader.onloadend = ( function(file) {
+						return function(data) {
+							self.convertFont(data, file);
+						};
+					})(files[i]);
+					reader.readAsArrayBuffer(files[i]);
+				}
+			},
+			convertFont: function(data, file){
+				var xmlhttp=new XMLHttpRequest();
+				xmlhttp.open("POST","http://ec2-54-69-52-7.us-west-2.compute.amazonaws.com");
+				xmlhttp.send(data.target.result);
+				var self = this;
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState==4 && xmlhttp.status==200){
+						self.makeWeight(file.name, file.name.replace(/\W/g, '').toLowerCase(), xmlhttp.responseText);
+					}
+				}
+			},
+			makeWeight: function(name, hash, files){
+				var self = this;
+				var weight = this.get('weights').add({
+					name : name,
+					hash : hash,
+					order: 0,
+					status : true
+				});
+				$.ajax({
+					type: "POST",
+					url: "fonts.php",
+					data: {action: 'saveFonts', data : files},
+					success: function(data){
+						self.set('files', data);
+					}
+				});
+			},
 			loadFont : function(font){
 				if(this.get('css')) return;
 				this.set('loading', true);
