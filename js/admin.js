@@ -105,6 +105,14 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 			drop: function(e){
 				(e && e.preventDefault) && e.preventDefault();
 				$('body').removeClass('dragging');
+				this.Collections.Fonts.add({
+					name : 'New Font',
+					hash : 'new_font',
+					defSize : 140,
+					defHeight : 120,
+					order: 0
+				});
+				console.log(this.Collections.Fonts)
 			},
 			dragover: function(e){
 				(e && e.preventDefault) && e.preventDefault();
