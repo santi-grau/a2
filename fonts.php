@@ -1,5 +1,5 @@
 <?php
-	function saveFonts($data){
+	function saveFonts(){
 		$data = json_decode($_POST['data']);
 		$fonts = array();
 		$characters = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ/+';
@@ -28,9 +28,14 @@
 		}
 		return json_encode($fonts);
 	}
+	function updateData($data){
+		file_put_contents('data.json', $data );
+		echo "data saved";
+	}
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		if($_POST['action'] == 'saveFonts') echo saveFonts($data);
-		if($_POST['action'] == 'deleteFonts') echo deleteFonts($data);
+		if($_POST['action'] == 'saveFonts') echo saveFonts();
+		//if($_POST['action'] == 'deleteFonts') echo deleteFonts($data);
+		if($_POST['action'] == 'updateData') echo updateData($_POST['data']);
 	}else{
 		$file = 'data.json';
 		$content = file_get_contents($file);

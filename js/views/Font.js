@@ -18,7 +18,8 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 				this.model.get('weights').on('destroy', this.removedWeight, this);
 				$('.sortable.weights').sortable({
 					axis: 'y',
-					handle: ".sort"
+					handle: ".sort",
+					update: _.bind(this.updateWeightPositions, this)
 				});
 			},
 			changeStatus: function(){
@@ -27,6 +28,14 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 			updateStatus: function(model, attr){
 				if(attr) this.$('.status').removeClass('btn-default').addClass('btn-success');
 				else this.$('.status').addClass('btn-default').removeClass('btn-success');
+			},
+			updateWeightPositions: function(event, ui){
+				var positions = [];
+				this.$('.weight').each(function(i){
+					positions.push({hash: $(this).data('hash'), position: this.$('.weight').index($(this))});
+				})
+				this.model.updatePositions(positions);
+				window.App.Collections.Fonts.sync();
 			},
 			deleteRequest: function(){
 				var r = confirm("Are you sure you want to delete " + this.model.get('name'));

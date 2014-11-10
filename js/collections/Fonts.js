@@ -6,9 +6,21 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 		var Fonts = Backbone.Collection.extend({
 			model: Font,
 			url: 'fonts.php',
+			initialize: function(){
+				this.on('destroy change:status change:name', this.sync, this);
+			},
 			fetch : function() {
-				this.on('destroy', this.removeFont, this);
 				$.getJSON( this.url, _.bind(this.setFonts, this));
+			},
+			sync: function(){
+				console.log('--------- data saved: ----------' + (new Date).getTime());
+				$.ajax({
+					type: "POST",
+					url: "fonts.php",
+					data: {action: 'updateData', data : JSON.stringify(this)},
+					success: function(data){
+					}
+				});
 			},
 			updatePositions: function(positions){
 				_.each(positions, _.bind(function(position){

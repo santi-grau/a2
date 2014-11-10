@@ -47,6 +47,12 @@ define(['backbone', 'collections/Weights'],
 					}
 				}
 			},
+			updatePositions: function(positions){
+				_.each(positions, _.bind(function(position){
+					var model = this.findWhere({hash:position.hash});
+					model.set('order', position.position)
+				}, this));
+			},
 			makeWeight: function(name, hash, files){
 				var self = this;
 				var weight = this.get('weights').add({

@@ -1,1 +1,0 @@
-define(["backbone"],function(e){var t=e.Model.extend({defaults:{name:null,hash:null,file:null}});return t});

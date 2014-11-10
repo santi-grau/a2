@@ -79,8 +79,7 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 				$('.sortable.fonts').sortable({
 					axis: 'y',
 					handle: '.sort',
-					update: _.bind(this.updateFontsPositions, this),
-					change: _.bind(this.updateFontOrder, this)
+					update: _.bind(this.updateFontsPositions, this)
 				});
 			},
 			updateFontsPositions: function(event, ui){
@@ -89,9 +88,7 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 					positions.push({hash: $(this).data('hash'), position: $('.font').index($(this))});
 				})
 				window.App.Collections.Fonts.updatePositions(positions);
-			},
-			updateFontOrder: function(){
-				
+				window.App.Collections.Fonts.sync();
 			},
 			addFont: function(model){
 				var fontPartial = _.template(FontView);
@@ -108,7 +105,7 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 				$('body').removeClass('dragging');
 				var model = this.Collections.Fonts.add({
 					name : 'New Font',
-					hash : 'new_font_'+(new Date).getTime(),
+					hash : 'new_font_' + (new Date).getTime(),
 					defSize : 140,
 					defHeight : 120,
 					order: -1
