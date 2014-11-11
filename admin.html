@@ -16,7 +16,39 @@
 		<div id="fontlist" class="col-xs-12">
 			<div class="panel-group sortable fonts" id="accordion" role="tablist" aria-multiselectable="true"></div>
 		</div>
-		<div id="settings"></div>
+		<div id="settings" class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">Buy link</span>
+						<input type="text" class="form-control" placeholder="http://...">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">Hash</span>
+						<input type="text" class="form-control" value="hash">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">Size</span>
+						<input type="text" class="form-control" value="size">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">Height</span>
+						<input type="text" class="form-control" value="height">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div id="editor"></div>
+				</div>
+			</div>
+		</div>
 		<script src="js/libs/requirejs/require.js" data-main="js/admin.js"></script>
 	</body>
 </html>

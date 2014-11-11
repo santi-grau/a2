@@ -28,13 +28,18 @@
 		}
 		return json_encode($fonts);
 	}
+	function deleteWeights($data){
+		foreach($data as $file){
+			$path = 'fonts/'.$file;
+			if (file_exists($path)) unlink($path);
+		}
+	}
 	function updateData($data){
 		file_put_contents('data.json', $data );
-		echo "data saved";
 	}
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if($_POST['action'] == 'saveFonts') echo saveFonts();
-		//if($_POST['action'] == 'deleteFonts') echo deleteFonts($data);
+		if($_POST['action'] == 'deleteWeights') echo deleteWeights($_POST['data']);
 		if($_POST['action'] == 'updateData') echo updateData($_POST['data']);
 	}else{
 		$file = 'data.json';

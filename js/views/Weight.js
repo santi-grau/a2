@@ -33,8 +33,23 @@ define(['backbone'],
 				else this.$('.def').addClass('btn-default').removeClass('btn-primary');
 			},
 			deleteRequest: function(){
+				if(this.model.get('def')) return alert('Cannot delete default weight, please select a new default and delete');
 				var r = confirm("Are you sure you want to delete this weight (" + this.model.get('name') + ") ?");
-				if (r) this.model.destroy();
+				if (r) this.remove();
+			},
+			remove: function(){
+				var weights = [];
+				$.each($.parseJSON(this.model.get('files')), function(i,j){
+					j.forEach(function(f){
+						weights.push(f)
+					})
+				});
+				this.model.destroy();
+				$.ajax({
+					type: "POST",
+					url: "fonts.php",
+					data: {action: 'deleteWeights', data : weights}
+				});
 			},
 			addWeight: function(model){
 				var weightPartial = _.template(WeightView);
@@ -57,7 +72,7 @@ define(['backbone'],
 			saveName: function(){
 				this.model.set('name', this.$('.weightName').val());
 				this.model.set('hash', this.stripVowelAccent(this.$('.weightName').val()));
-				console.log(this.model)
+				window.App.Collections.Fonts.sync();
 			}
 		});
 		return Weight;

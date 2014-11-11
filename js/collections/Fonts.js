@@ -8,7 +8,7 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 			comparator: 'order',
 			url: 'fonts.php',
 			initialize: function(){
-				this.on('destroy change:status change:name', this.sync, this);
+				this.on('destroy change:status', this.sync, this);
 			},
 			fetch : function() {
 				$.getJSON( this.url, _.bind(this.setFonts, this));

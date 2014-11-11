@@ -1,12 +1,13 @@
 // ┌────────────────────────────────────────────────────────────────────┐
 // | Font.js
 // └────────────────────────────────────────────────────────────────────┘
-define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
-	function(Backbone, WeightView, Weight){
+define(['backbone', 'text!partials/admin_weight', 'views/Weight', 'views/Settings'],
+	function(Backbone, WeightView, Weight, Settings){
 		var Font = Backbone.View.extend({
 			events: {
 				'click .status:eq(0)': 'changeStatus',
 				'click .delete:eq(0)': 'deleteRequest',
+				'click .edit' : 'edit',
 				'drop' : 'drop',
 				'dragover' : 'dragover',
 				'dragleave' : 'dragleave',
@@ -15,6 +16,7 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 			},
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
+				this.model.on('change:loading', this.updateLoading, this);
 				this.model.get('weights').on('add', this.addWeight, this);
 				this.model.get('weights').on('destroy', this.removedWeight, this);
 				this.$('.sortable.weights').sortable({
@@ -35,6 +37,9 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 					model.set('def', false);
 				});
 			},
+			edit: function(){
+				new Settings({ model : this.model});
+			},
 			updateWeightPositions: function(event, ui){
 				var positions = [];
 				var self = this;
@@ -46,7 +51,32 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 			},
 			deleteRequest: function(){
 				var r = confirm("Are you sure you want to delete " + this.model.get('name'));
-				if (r) this.model.destroy();
+				if (r) this.remove();
+			},
+			remove: function(){
+				var weights = [];
+				this.model.get('weights').each(function(model){
+					$.each($.parseJSON(model.get('files')), function(i,j){
+						j.forEach(function(f){
+							weights.push(f)
+						})
+					});
+				})
+				this.model.destroy();
+				$.ajax({
+					type: "POST",
+					url: "fonts.php",
+					data: {action: 'deleteWeights', data : weights}
+				});
+			},
+			updateLoading: function(model, attr){
+				if(attr){
+					this.$el.addClass('loading');
+					this.$('.fontName').attr('disabled', 'disabled').val( this.model.get('name') + ' ( Loading ... )');
+				}else{
+					this.$el.removeClass('loading');
+					this.$('.fontName').removeAttr('disabled').val( this.model.get('name'));
+				}
 			},
 			removedWeight: function(model, attr){
 				var font = window.App.Collections.Fonts.findWhere({ hash : this.model.get('hash') });
@@ -83,13 +113,14 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 				this.typingInterval = setTimeout(_.bind(this.saveName, this), 1000);
 			},
 			stripVowelAccent: function(str){
-				var rExps=[ {re:/[\xC0-\xC6]/g, ch:'A'}, {re:/[\xE0-\xE6]/g, ch:'a'}, {re:/[\xC8-\xCB]/g, ch:'E'}, {re:/[\xE8-\xEB]/g, ch:'e'}, {re:/[\xCC-\xCF]/g, ch:'I'}, {re:/[\xEC-\xEF]/g, ch:'i'}, {re:/[\xD2-\xD6]/g, ch:'O'}, {re:/[\xF2-\xF6]/g, ch:'o'}, {re:/[\xD9-\xDC]/g, ch:'U'}, {re:/[\xF9-\xFC]/g, ch:'u'}, {re:/[\xD1]/g, ch:'N'}, {re:/[\xF1]/g, ch:'n'} ];
+				var rExps=[ {re:/[\xC0-\xC6]/g, ch:'A'}, {re:/[\xE0-\xE6]/g, ch:'a'}, {re:/[\xC8-\xCB]/g, ch:'E'}, {re:/[\xE8-\xEB]/g, ch:'e'}, {re:/[\xCC-\xCF]/g, ch:'I'}, {re:/[\xEC-\xEF]/g, ch:'i'}, {re:/[\xD2-\xD6]/g, ch:'O'}, {re:/[\xF2-\xF6]/g, ch:'o'}, {re:/[\xD9-\xDC]/g, ch:'U'}, {re:/[\xF9-\xFC]/g, ch:'u'}, {re:/[\xD1]/g, ch:'N'}, {re:/[\xF1]/g, ch:'n'}, {re:/\s+/g, ch:'-'}];
 				for(var i=0, len=rExps.length; i<len; i++) str = str.replace(rExps[i].re, rExps[i].ch);
 				return str;
 			},
 			saveName: function(){
 				this.model.set('name', this.$('.fontName').val());
 				this.model.set('hash', this.stripVowelAccent(this.$('.fontName').val()).toLowerCase());
+				window.App.Collections.Fonts.sync();
 			}
 		});
 		return Font;

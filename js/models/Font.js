@@ -8,7 +8,7 @@ define(['backbone', 'collections/Weights'],
 				weights : null,
 				name : null,
 				hash : null,
-				defContent : [{"value":"Introducing","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{"font":"regular-extrabold"}},{"value":"A2-TYPE","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(245, 0, 252)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"Highlight","attributes":{"color":"rgb(255, 255, 255)","background":"rgb(127, 73, 0)", "font":"regular-extrabold"}},{"value":" any","attributes":{"color":"rgb(127, 72, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(127, 73, 0)","font":"regular-extrabold"}},{"value":"!","attributes":{"image":"img/buy.png"}},{"value":"       that’s","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{"font":"regular-extrabold"}},{"value":"\n","attributes":{}}],
+				defContent : [{"value":"Introducing","attributes":{}},{"value":"\n","attributes":{}},{"value":"the ","attributes":{}},{"value":"A2-TYPE","attributes":{"color":"rgb(245, 0, 252)"}},{"value":"\n","attributes":{}},{"value":"TESTER:","attributes":{"color":"rgb(245, 0, 252)"}},{"value":"\n","attributes":{}},{"value":"Design your","attributes":{}},{"value":"\n","attributes":{}},{"value":"own specimen","attributes":{}},{"value":"\n","attributes":{}},{"value":"from our list","attributes":{}},{"value":"\n","attributes":{}},{"value":"of fonts.","attributes":{}},{"value":"\n","attributes":{}},{"value":"Highlight","attributes":{"color":"rgb(255, 255, 255)","background":"rgb(127, 73, 0)"}},{"value":" any","attributes":{"color":"rgb(127, 72, 0)"}},{"value":"\n","attributes":{}},{"value":"font and click","attributes":{"color":"rgb(127, 73, 0)"}},{"value":"\n","attributes":{}},{"value":"on ","attributes":{"color":"rgb(127, 73, 0)"}},{"value":"!","attributes":{"image":"img/buy.png"}},{"value":"       that’s","attributes":{}},{"value":"\n","attributes":{}},{"value":"it. easy. ","attributes":{}},{"value":"\n","attributes":{}}],
 				defSize : null,
 				defHeight : null,
 				defWidth : null,
@@ -17,7 +17,7 @@ define(['backbone', 'collections/Weights'],
 				loading : false,
 				loaded : 0,
 				heightRatio : null,
-				order: null
+				order: 0
 			},
 			initialize: function(){
 				this.set('weights', new Weights(this.get('weights')));
@@ -67,7 +67,7 @@ define(['backbone', 'collections/Weights'],
 					url: "fonts.php",
 					data: {action: 'saveFonts', data : files},
 					success: function(data){
-						self.set('files', data);
+						weight.set('files', data);
 					}
 				});
 			},

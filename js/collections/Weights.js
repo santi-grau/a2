@@ -7,7 +7,7 @@ define(['backbone', 'models/Weight'],
 			model: Weight,
 			comparator: 'order',
 			initialize: function(){
-				this.on('destroy change:status change:name', window.App.Collections.Fonts.sync, window.App.Collections.Fonts);
+				this.on('destroy change:status', window.App.Collections.Fonts.sync, window.App.Collections.Fonts);
 			}
 		});
 		return Weights;

@@ -11,43 +11,29 @@ require.config({
 			exports : '$'
 		},
 		backbone: {
-			deps: [
-				'underscore',
-				'jquery'
-			],
+			deps: [ 'underscore', 'jquery' ],
 			exports: 'Backbone'
 		},
 		collapsible: {
-			deps: [
-				'jquery'
-			]
+			deps: [ 'jquery' ]
 		},
 		transition: {
-			deps: [
-				'jquery'
-			]
+			deps: [ 'jquery' ]
+		},
+		dropdown: {
+			deps: [ 'jquery' ]
 		},
 		jqueryUiWidget: {
-			deps: [
-				'jquery'
-			]
+			deps: [ 'jquery' ]
 		},
 		jqueryUiCore: {
-			deps: [
-				'jquery'
-			]
+			deps: [ 'jquery' ]
 		},
 		jqueryUiMouse: {
-			deps: [
-				'jqueryUiWidget'
-			]
+			deps: [ 'jqueryUiWidget' ]
 		},
 		jqueryUiSortable: {
-			deps: [
-				'jqueryUiCore',
-				'jqueryUiMouse',
-				'jqueryUiCore'
-			]
+			deps: [ 'jqueryUiCore', 'jqueryUiMouse', 'jqueryUiCore' ]
 		}
 	},
 	paths: {
@@ -61,10 +47,13 @@ require.config({
 		text: 'libs/text/text',
 		collapsible: 'libs/bootstrap/js/collapse',
 		transition: 'libs/bootstrap/js/transition',
+		dropdown: 'libs/bootstrap/js/dropdown',
+		quill: 'libs/quill/dist/quill',
+		color: 'libs/color/one-color'
 	}
 });
-require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collections/Fonts', 'views/Font', 'text!partials/admin_font'],
-	function(Backbone, collapsible, transition, sortable, Fonts, Font, FontView){
+require(['backbone', 'collapsible', 'transition', 'dropdown', 'jqueryUiSortable', 'collections/Fonts', 'views/Font', 'text!partials/admin_font'],
+	function(Backbone, collapsible, transition, dropdown, sortable, Fonts, Font, FontView){
 		var App = Backbone.View.extend({
 			Models : {},
 			Views : {},
@@ -112,8 +101,20 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 					order: -1
 				});
 				var dt = e.originalEvent.dataTransfer;
+				var filesLength = dt.files.length;
 				model.uploadFonts(dt.files);
-				console.log(this.Collections.Fonts)
+				model.set('loading', true);
+				model.get('weights').once('add', function(m){
+					m.set('def', true);
+				});
+				model.get('weights').on('add', function(m){
+					if(model.get('weights').length == filesLength){
+						model.set('loading', false);
+						m.once('change:files', function(){
+							window.App.Collections.Fonts.sync();
+						})
+					}
+				});
 			},
 			dragover: function(e){
 				(e && e.preventDefault) && e.preventDefault();

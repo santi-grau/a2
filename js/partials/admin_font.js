@@ -4,7 +4,7 @@
 			<div class="col-md-1">
 				<a data-toggle="collapse" data-parent="#accordion" href="#<%= data.hash %>" aria-expanded="true" aria-controls="<%= data.hash %>" class="glyphicon glyphicon-circle-arrow-down"></a>
 				<a class="glyphicon glyphicon-th-list sort"></a>
-				<a class="glyphicon glyphicon-cog"></a>
+				<a class="glyphicon glyphicon-cog edit"></a>
 			</div>
 			<div class="col-md-8">
 				<h4 class="panel-title" class="clearfix">
