@@ -10,13 +10,14 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 				'drop' : 'drop',
 				'dragover' : 'dragover',
 				'dragleave' : 'dragleave',
-				'keyup .fontName' : 'stopTyping'
+				'keyup .fontName' : 'stopTyping',
+				'click .def': 'changeDefault'
 			},
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
 				this.model.get('weights').on('add', this.addWeight, this);
 				this.model.get('weights').on('destroy', this.removedWeight, this);
-				$('.sortable.weights').sortable({
+				this.$('.sortable.weights').sortable({
 					axis: 'y',
 					handle: ".sort",
 					update: _.bind(this.updateWeightPositions, this)
@@ -29,10 +30,16 @@ define(['backbone', 'text!partials/admin_weight', 'views/Weight'],
 				if(attr) this.$('.status').removeClass('btn-default').addClass('btn-success');
 				else this.$('.status').addClass('btn-default').removeClass('btn-success');
 			},
+			changeDefault: function(){
+				this.model.get('weights').each(function(model){
+					model.set('def', false);
+				});
+			},
 			updateWeightPositions: function(event, ui){
 				var positions = [];
+				var self = this;
 				this.$('.weight').each(function(i){
-					positions.push({hash: $(this).data('hash'), position: this.$('.weight').index($(this))});
+					positions.push({hash: $(this).data('hash'), position: self.$('.weight').index($(this))});
 				})
 				this.model.updatePositions(positions);
 				window.App.Collections.Fonts.sync();

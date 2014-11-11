@@ -9,7 +9,8 @@ define(['backbone'],
 				hash : null,
 				files : null,
 				order: null,
-				status : null
+				status : null,
+				def: null
 			}
 		});
 		return Weight;

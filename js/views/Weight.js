@@ -6,19 +6,31 @@ define(['backbone'],
 		var Weight = Backbone.View.extend({
 			events: {
 				'click .status': 'changeStatus',
+				'click .def': 'changeDefault',
 				'click .delete': 'deleteRequest',
 				'keyup .weightName' : 'stopTyping'
 			},
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
+				this.model.on('change:def', this.updateDefault, this);
 				this.model.on('destroy', this.removeWeight, this);
 			},
 			changeStatus: function(){
 				this.model.set('status', !this.model.get('status'));
 			},
+			changeDefault: function(){
+				_.defer(_.bind(function(){
+					this.model.set('def', true);
+					window.App.Collections.Fonts.sync();
+				},this))
+			},
 			updateStatus: function(model, attr){
 				if(attr) this.$('.status').removeClass('btn-default').addClass('btn-success');
 				else this.$('.status').addClass('btn-default').removeClass('btn-success');
+			},
+			updateDefault: function(model, attr){
+				if(attr) this.$('.def').removeClass('btn-default').addClass('btn-primary');
+				else this.$('.def').addClass('btn-default').removeClass('btn-primary');
 			},
 			deleteRequest: function(){
 				var r = confirm("Are you sure you want to delete this weight (" + this.model.get('name') + ") ?");

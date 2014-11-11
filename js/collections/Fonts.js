@@ -5,6 +5,7 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 	function(Backbone, Font, Weights){
 		var Fonts = Backbone.Collection.extend({
 			model: Font,
+			comparator: 'order',
 			url: 'fonts.php',
 			initialize: function(){
 				this.on('destroy change:status change:name', this.sync, this);

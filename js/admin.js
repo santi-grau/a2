@@ -88,6 +88,7 @@ require(['backbone', 'collapsible', 'transition', 'jqueryUiSortable', 'collectio
 					positions.push({hash: $(this).data('hash'), position: $('.font').index($(this))});
 				})
 				window.App.Collections.Fonts.updatePositions(positions);
+				window.App.Collections.Fonts.sort();
 				window.App.Collections.Fonts.sync();
 			},
 			addFont: function(model){
