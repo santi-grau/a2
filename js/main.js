@@ -80,12 +80,14 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 				this.Views.Options.fix(scrollTop > $('#content').offset().top);
 			},
 			dataReady: function(data){
-				this.Models.App = new Appmodel()
+				var defFont = data[0].hash;
+				if(window.location.hash) defFont = window.location.hash.substring(1);
+				this.Models.App = new Appmodel();
+				this.Models.App.set('defFont', defFont);
 				this.Collections.Fonts = new Fonts();
 				this.Views.Toolbar = new Toolbar();
 				this.Views.Options = new Options();
 				this.Views.Editor = new Editor();
-				
 				this.Collections.Fonts.setFonts(data);
 				this.Models.App.set('fonts', data);
 				this.scrollCheck();

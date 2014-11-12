@@ -8,7 +8,7 @@ define(['backbone', 'text!partials/font_partial.js', 'text!partials/weight_parti
 				font_partial : font_partial,
 				weight_partial : weight_partial,
 				fonts : null,
-				defFont : 'regular',
+				defFont : null,
 				font : null,
 				weight : null,
 				size : null,

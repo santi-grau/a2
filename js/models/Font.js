@@ -75,30 +75,40 @@ define(['backbone', 'collections/Weights'],
 				if(this.get('css')) return;
 				this.set('loading', true);
 				$('#loadingFont').addClass('active');
-				$.ajax({
-					xhr: _.bind(function() {
-						var xhr = new window.XMLHttpRequest();
-						xhr.addEventListener("progress", _.bind(function(evt) {
-							if (evt.lengthComputable) {
-								var percentComplete = evt.loaded / evt.total;
-								this.set({
-									'loaded' : Math.round(percentComplete * 100)
-								})
-							}
-						}, this), false);
-						return xhr;
-					},this),
-					type: 'GET',
-					url: '/fonts/' + font + '.json',
-					success: _.bind(function(data){
-						$('#loadingFont').removeClass('active');
-						this.set({
-							'css' : data,
-							'loaded' : 0,
-							'loading' : false
-						})
-					},this)
-				});
+				var fontFiles = [];
+				var weights = window.App.Collections.Fonts.findWhere({hash:font}).get('weights');
+				weights.each(_.bind(function(weightModel){
+					var familyName = [];
+					$.parseJSON(weightModel.get('files')).woff.forEach(function(fontFile){
+						familyName.push( '"f' + fontFile.split('.')[0] + '"' );
+						fontFiles.push(fontFile);
+					});
+					weightModel.set('familyName' , familyName.join(','));
+				},this));
+				var totalFiles = fontFiles.length - 1;
+				var css = [];
+				$.each(fontFiles, _.bind(function(i,j){
+					$.ajax({ 
+						async:false, url:"fonts/"+j, success: _.bind(function(data){
+							css.push({
+								'font-family' : '"f' + j.split('.')[0] +'"',
+								'src' : "url('" + data + "')"
+							})
+							if(totalFiles > 0) totalFiles--;
+							else return this.buildFont(css);
+							this.set({
+								'loaded' : (fontFiles.length - totalFiles) * 100
+							})
+						}, this)
+					});
+				}, this));
+			},
+			buildFont: function(css){
+				$('#loadingFont').removeClass('active');
+				this.set({
+					'css' : css,
+					'loading' : false
+				})
 			}
 		});
 		return Font;

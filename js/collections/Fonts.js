@@ -45,7 +45,9 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 					});
 					model.get('weights').add(j.weights)
 				},this));
-				console.log(this)
+				console.log('Fonts');
+				console.log(this);
+				console.log('- - - - - - - - - - - - - - - ');
 			}
 		});
 		return Fonts;

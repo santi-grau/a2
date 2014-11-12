@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		requirejs: {
@@ -7,9 +6,9 @@ module.exports = function(grunt) {
 				options: {
 					almond: true,
 					modules: [{name: 'main'}],
-					dir: './public/build',
-					baseUrl : "./public/js",
-					mainConfigFile: "./public/js/main.js"
+					dir: './build',
+					baseUrl : "./js",
+					mainConfigFile: "./js/admin.js"
 				}
 			}
 		}
