@@ -1,4 +1,9 @@
 <?php
+	date_default_timezone_set('Europe/London');
+	if (!file_exists('backups/data'.date("dmy").'.json')) makeBackup();
+	function makeBackup(){
+		file_put_contents('backups/data'.date("dmy").'.json', file_get_contents('data.json') );
+	}
 	function saveFonts(){
 		$data = json_decode($_POST['data']);
 		$fonts = array();
@@ -42,8 +47,6 @@
 		if($_POST['action'] == 'deleteWeights') echo deleteWeights($_POST['data']);
 		if($_POST['action'] == 'updateData') echo updateData($_POST['data']);
 	}else{
-		$file = 'data.json';
-		$content = file_get_contents($file);
-		echo $content;
+		echo file_get_contents('data.json');
 	}
 ?>
