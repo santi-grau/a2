@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 	// Load the plugin that provides the "uglify" task.
 	grunt.loadNpmTasks('grunt-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-sftp-deploy');
 	// Default task(s).
 	grunt.registerTask('default', ['requirejs', 'clean']);
 };
