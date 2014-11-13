@@ -35,6 +35,9 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 							'-moz-font-feature-settings': 'kern=1',
 							'font-size' : this.model.get('defSize') + 'px',
 							'line-height' : this.model.get('defHeight') + 'px'
+						},
+						'.line:first-child' : {
+							'margin-top' : '50px'
 						}
 					}
 				});
@@ -63,7 +66,7 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 					'body' : {
 						'font-family' : fontFamily
 					}
-				})
+				});
 				this.quill.on('text-change', _.bind(this.textChange, this));
 			},
 			closeSettings: function(){
@@ -72,7 +75,7 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 				$('body').removeClass('settings');
 				setTimeout(_.bind(function(){
 					this.$el.html('');
-				}, this), 500)
+				}, this), 500);
 			},
 			stopTyping: function(){
 				if(this.typingInterval) clearTimeout(this.typingInterval);
@@ -93,7 +96,7 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 						'font-size' : this.$('#sizeInput').val() + 'px',
 						'line-height' : this.$('#heightInput').val() + 'px'
 					}
-				})
+				});
 			},
 			startColorDrag: function(e){
 				e.preventDefault();
@@ -109,11 +112,11 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 				var circCenterX = this.$('#outerCircle').width() / 2;
 				var circCenterY = this.$('#outerCircle').height() / 2;
 				var angle = Math.atan2(e.offsetY - circCenterY, e.offsetX - circCenterX) * 180 / Math.PI + 150;
-				var distance = this.lineDistance({ x: circCenterX, y: circCenterY }, { x: e.offsetX , y: e.offsetY })
+				var distance = this.lineDistance({ x: circCenterX, y: circCenterY }, { x: e.offsetX , y: e.offsetY });
 				var level = Math.max(Math.min((distance - 10) / (($('#outerCircle').width() / 2) - 11)),0) * 100 + '%';
 				if(distance > this.$('#centerCircle').width() / 2 +blackTolerance) return Color('hsv('+ Math.abs(angle > 0 ? angle : 360+angle) +', 100%, '+level+')').css();
 				else if(distance > this.$('#centerCircle').width() / 2 && distance < this.$('#centerCircle').width() / 2 + blackTolerance) return Color('hsv(0, 0%, 0%)').css();
-				else return Color('hsv(0, 0%, 100%)').css()
+				else return Color('hsv(0, 0%, 100%)').css();
 			},
 			colorDrag: function(e){
 				var zoom = this.$('#colorZoom');
@@ -123,7 +126,7 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 					'-ms-transform' : 'translate(' + ( e.offsetX - zoom.width()/2 ) + 'px,' + ( e.offsetY - zoom.height()/2 ) + 'px)',
 					'-o-transform' : 'translate(' + ( e.offsetX - zoom.width()/2 ) + 'px,' + ( e.offsetY - zoom.height()/2 ) + 'px)',
 					'transform' : 'translate(' + ( e.offsetX - zoom.width()/2 ) + 'px,' + ( e.offsetY - zoom.height()/2 ) + 'px)'
-				})
+				});
 				var color = this.getColor(e);
 				zoom.children().css('background-color', color);
 				if(this.dragging) this.setColor(color);
@@ -132,7 +135,7 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 				this.dragging = false;
 				var circle = this.$('#outerCircle');
 				var zoom = this.$('#colorZoom');
-				zoom.removeClass('active')
+				zoom.removeClass('active');
 				circle.removeClass('dragging');
 				if(this.dragging) this.updateContent();
 			},

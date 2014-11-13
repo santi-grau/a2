@@ -44,12 +44,13 @@ define(['backbone', 'jqueryUiDraggable'],
 				});
 				window.App.Models.App.trigger('change:font', window.App.Models.App, fontHash);
 				var weights = font.get('weights');
-				var defWeight = font.get('defWeight');
+				var defWeight = weights.findWhere({ def : true}).get('hash');
 				if(App.Models.App.get('weight') == defWeight){
 					window.App.Models.App.trigger('change:weight', window.App.Models.App, defWeight);
 				}else{
 					window.App.Models.App.trigger('change:weight', window.App.Models.App, defWeight);
-					var weight = weights.findWhere({ hash : defWeight}).get('name');
+					var weight = weights.findWhere({ hash : defWeight})
+					weight.get('name');
 				}
 			},
 			setNewFont: function(fontHash){
@@ -58,7 +59,7 @@ define(['backbone', 'jqueryUiDraggable'],
 				});
 				var weights = font.get('weights');
 				var name = font.get('name');
-				var defWeight = font.get('defWeight');
+				var defWeight = font.get('weights').findWhere({ def : true}).get('hash');
 				var weight = weights.findWhere({ def : true}).get('name');
 				var weightPartial = _.template(App.Models.App.get('weight_partial'));
 				var partial = weightPartial({data: weights.toJSON()});
