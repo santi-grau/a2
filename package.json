@@ -1,0 +1,24 @@
+{
+  "name": "a2",
+  "version": "1.0.0",
+  "description": "Font tester for A2-type",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santi-grau/a2.git"
+  },
+  "author": "santi grau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/santi-grau/a2/issues"
+  },
+  "homepage": "https://github.com/santi-grau/a2",
+  "dependencies": {
+    "almond": "^0.3.0",
+    "grunt": "^0.4.5",
+    "grunt-requirejs": "^0.4.2"
+  }
+}

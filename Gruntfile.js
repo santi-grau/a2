@@ -5,10 +5,10 @@ module.exports = function(grunt) {
 			compile: {
 				options: {
 					almond: true,
-					modules: [{name: 'main'}],
+					modules: [{name: 'tester'}],
 					dir: './build',
 					baseUrl : "./js",
-					mainConfigFile: "./js/admin.js"
+					mainConfigFile: "./js/tester.js"
 				}
 			}
 		}

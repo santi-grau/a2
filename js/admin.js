@@ -32,14 +32,18 @@ require.config({
 		jqueryUiMouse: {
 			deps: [ 'jqueryUiWidget' ]
 		},
+		jqueryUiDraggable: {
+			deps: [ 'jqueryUiCore', 'jqueryUiMouse']
+		},
 		jqueryUiSortable: {
-			deps: [ 'jqueryUiCore', 'jqueryUiMouse', 'jqueryUiCore' ]
+			deps: [ 'jqueryUiCore', 'jqueryUiMouse']
 		}
 	},
 	paths: {
 		jquery: 'libs/jquery/dist/jquery.min',
 		jqueryUiCore: 'libs/jquery-ui/ui/jquery.ui.core',
 		jqueryUiSortable: 'libs/jquery-ui/ui/jquery.ui.sortable',
+		jqueryUiDraggable: 'libs/jquery-ui/ui/jquery.ui.draggable',
 		jqueryUiMouse: 'libs/jquery-ui/ui/jquery.ui.mouse',
 		jqueryUiWidget: 'libs/jquery-ui/ui/jquery.ui.widget',
 		underscore: 'libs/underscore/underscore-min',

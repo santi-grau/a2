@@ -18,7 +18,7 @@
 		<title>A2 Type Tester</title>
 		<meta name="description" content="A2's typetester">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" id="mainStylesheet" href="/css/main.css">
+		<link rel="stylesheet" id="mainStylesheet" href="css/main.css">
 	</head>
 	<body>
 		<ul id="menu" class="clearfix">
@@ -97,6 +97,10 @@
 				A2 Typetester is for testing the A2 Library fonts online only. You are not permitted to use any of the specimens you create in the A2 Typetester for commercial work; printed or digital, or in any way publish our fonts as part of your, or your clients design. All rights reserved © A2-TYPE
 			</p>
 		</div>
-		<script src="/js/libs/requirejs/require.js" data-main="/js/main.js"></script>
+		<?php  if (strpos('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'],'a2.local') !== false) { ?>
+			<script src="js/libs/requirejs/require.js" data-main="js/tester.js"></script>
+		<?php }else{ ?>
+			<script src="build/tester.js"></script>
+		<?php } ?>
 	</body>
 </html>
