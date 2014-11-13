@@ -31,6 +31,7 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 			},
 			setFonts: function(data){
 				$.each(data, _.bind(function(i,j){
+					if(!j.status) return;
 					var model = this.add({
 						name : j.name,
 						hash : j.hash,

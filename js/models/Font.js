@@ -78,6 +78,7 @@ define(['backbone', 'collections/Weights'],
 				var fontFiles = [];
 				var weights = window.App.Collections.Fonts.findWhere({hash:font}).get('weights');
 				weights.each(_.bind(function(weightModel){
+					if(!weightModel.get('status')) return;
 					var familyName = [];
 					$.parseJSON(weightModel.get('files')).woff.forEach(function(fontFile){
 						familyName.push( 'f' + fontFile.split('.')[0] );
@@ -89,7 +90,7 @@ define(['backbone', 'collections/Weights'],
 				var css = [];
 				$.each(fontFiles, _.bind(function(i,j){
 					$.ajax({ 
-						async:false, url:"fonts/"+j, success: _.bind(function(data){
+						url:"fonts/"+j, success: _.bind(function(data){
 							css.push({
 								'font-family' : '"f' + j.split('.')[0] +'"',
 								'src' : "url('" + data + "')"

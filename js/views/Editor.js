@@ -60,12 +60,16 @@ define(['backbone', 'quill', 'color'],
 						}
 					}, this))
 				}, this), 1000)
-				
+			},
+			saveEditor: function(){
+				console.log(this.quill)
+				localStorage.setItem("editor", this.quill.getContents());
 			},
 			blur: function(){
 				this.quill.setSelection(0,0);
 			},
 			setNewText: function(delta, source){
+				if(localStorage.getItem("editor")) console.log(localStorage.getItem("editor"))
 				$.each(this.quill.editor.doc.lineMap, _.bind(function(index, line){
 					if(this.quill.editor.doc.lines.length > 1 && $(line.node).text() == ''){
 						var ops = line.prev.delta.ops;
@@ -78,6 +82,7 @@ define(['backbone', 'quill', 'color'],
 				var top = $(this.quill.root).find('.line:last').position().top;
 				var height = $(this.quill.root).find('.line:last').height();
 				$('#content').height(Math.max(parseInt(height) + parseInt(top) + 100, 600));
+				this.saveEditor();
 			},
 			setContent: function(model){
 				var defFont = window.App.Models.App.get('defFont');
