@@ -1,7 +1,7 @@
 // ┌────────────────────────────────────────────────────────────────────┐
 // | Font.js
 // └────────────────────────────────────────────────────────────────────┘
-define(['backbone', 'text!partials/admin_weight', 'views/Weight', 'views/Settings'],
+define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Settings'],
 	function(Backbone, WeightView, Weight, Settings){
 		var Font = Backbone.View.extend({
 			events: {

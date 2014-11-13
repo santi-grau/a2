@@ -8,7 +8,6 @@
 		<meta name="description" content="A2 Type Converter's Admin">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" id="mainStylesheet" href="css/admin.css">
-		<script src="js/libs/modernizr/modernizr.js"></script>
 	</head>
 	<body>
 		<div id="header">
@@ -18,6 +17,10 @@
 			<div class="panel-group sortable fonts" id="accordion" role="tablist" aria-multiselectable="true"></div>
 		</div>
 		<div id="settings"></div>
-		<script src="js/libs/requirejs/require.js" data-main="js/admin.js"></script>
+		<?php  if (strpos('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'],'a2.local') !== false) { ?>
+			<script src="js/libs/requirejs/require.js" data-main="js/admin.js"></script>
+		<?php }else{ ?>
+			<script src="build/admin.js"></script>
+		<?php } ?>
 	</body>
 </html>

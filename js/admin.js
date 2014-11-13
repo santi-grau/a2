@@ -56,7 +56,7 @@ require.config({
 		color: 'libs/color/one-color'
 	}
 });
-require(['backbone', 'collapsible', 'transition', 'dropdown', 'jqueryUiSortable', 'collections/Fonts', 'views/Font', 'text!partials/admin_font'],
+require(['backbone', 'collapsible', 'transition', 'dropdown', 'jqueryUiSortable', 'collections/Fonts', 'views/Font', 'text!partials/admin_font.js'],
 	function(Backbone, collapsible, transition, dropdown, sortable, Fonts, Font, FontView){
 		var App = Backbone.View.extend({
 			Models : {},

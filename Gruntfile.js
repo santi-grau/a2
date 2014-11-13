@@ -5,16 +5,20 @@ module.exports = function(grunt) {
 			compile: {
 				options: {
 					almond: true,
-					modules: [{name: 'tester'}],
+					modules: [{name: 'admin'},{name: 'tester'}],
 					dir: './build',
 					baseUrl : "./js",
-					mainConfigFile: "./js/tester.js"
+					mainConfigFile: "./js/admin.js"
 				}
 			}
+		},
+		clean: {
+			build: ["build/*", "!build/tester.js", "!build/admin.js"]
 		}
 	});
 	// Load the plugin that provides the "uglify" task.
 	grunt.loadNpmTasks('grunt-requirejs');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	// Default task(s).
-	grunt.registerTask('default', ['requirejs']);
+	grunt.registerTask('default', ['requirejs', 'clean']);
 };
