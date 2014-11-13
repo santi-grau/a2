@@ -80,12 +80,10 @@ define(['backbone', 'quill', 'color'],
 				$('#content').height(Math.max(parseInt(height) + parseInt(top) + 100, 600));
 			},
 			setContent: function(model){
-
 				var defFont = window.App.Models.App.get('defFont');
 				var font = window.App.Collections.Fonts.findWhere({ hash : defFont });
 				var weight = font.get('weights').findWhere({def:true});
 				var familyName = weight.get('familyName');
-
 				this.quill.setContents(model.get('defContent'));
 				var currentContent = this.quill.getContents();
 				ops = currentContent.ops;
@@ -102,16 +100,12 @@ define(['backbone', 'quill', 'color'],
 				this.origSize = model.get('defSize');
 				this.origHeight = model.get('defHeight');
 				this.origImg = 155;
-
-
 				var currentContent = this.quill.getContents();
 				ops = currentContent.ops;
 				$.each(ops, _.bind(function(i,j){
 					ops[i].attributes.font = familyName;
 				},this));
 				this.quill.setContents(ops);
-
-
 			},
 			setStyles: function(model){
 				var css = model.get('css');
@@ -123,22 +117,26 @@ define(['backbone', 'quill', 'color'],
 						}
 					});
 				}, this));
+				this.setFont(null, model.get('hash'))
 			},
 			setFont: function(model, attr){
-				var weight  =  window.App.Models.App.get('weight');
+				if(!attr || attr == 'null' || attr == null) return;
+				var font = attr;
+				var familyName = window.App.Collections.Fonts.findWhere({ hash : font }).get('weights').findWhere({ def : true }).get('familyName');
+				if(!familyName || familyName == 'null' || familyName == null) return;
 				if(this.range && this.range.start !== null && this.range.end){
 					this.quill.formatText(this.range.start, this.range.end, {
-						'font': attr + '-' + weight
+						'font': familyName
 					});
 				}
 			},
 			setWeight: function(model, attr){
-				
+				if(!attr || attr == 'null' || attr == null) return;
 				var font = window.App.Models.App.get('font');
-				console.log(font)
+				var familyName = window.App.Collections.Fonts.findWhere({ hash : font }).get('weights').findWhere({ hash : attr }).get('familyName');
 				if(this.range && this.range.start !== null && this.range.end){
 					this.quill.formatText(this.range.start, this.range.end, {
-						'font': font + '-' + attr
+						'font': familyName
 					});
 				}
 			},
@@ -147,21 +145,15 @@ define(['backbone', 'quill', 'color'],
 				if(!range) return window.App.Views.Toolbar.resetFontWeightSelectors();
 				var delta = this.quill.getContents(range.start, range.end);
 				
-				// var fonts = [];
+				var fonts = [];
 				
-				// $.each(delta.ops, function(index,op){
-				// 	if(op.attributes.font) fonts.push(op.attributes.font);
-				// })
-				// var uniqueFonts = _.uniq(fonts);
-				
-
-				// if(uniqueFonts.length == 0) return window.App.Views.Toolbar.resetFontWeightSelectors();
-
-				// if(uniqueFonts.length == 1) {
-				// 	window.App.Views.Toolbar.refreshFontName(uniqueFonts[0]);
-				// }else{
-				// 	window.App.Views.Toolbar.refreshFontName(null);
-				// }
+				$.each(delta.ops, function(index,op){
+					if(op.attributes.font) fonts.push(op.attributes.font);
+				})
+				var uniqueFonts = _.uniq(fonts);
+				if(uniqueFonts.length == 0) return window.App.Views.Toolbar.resetFontWeightSelectors();
+				if(uniqueFonts.length == 1) window.App.Views.Toolbar.refreshFontName(uniqueFonts[0]);
+				else window.App.Views.Toolbar.refreshFontName(null);
 			},
 			setColor: function(model){
 				var rgb = model.get('color')

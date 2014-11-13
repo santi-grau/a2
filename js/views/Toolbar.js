@@ -35,11 +35,8 @@ define(['backbone', 'jqueryUiDraggable'],
 			selectFont: function(e){
 				e.preventDefault();
 				var fontHash = $(e.currentTarget).data('hash');
-				if(App.Models.App.get('font') == fontHash){
-					this.resetFont(fontHash);
-				}else{
-					this.setNewFont(fontHash);
-				}
+				if(App.Models.App.get('font') == fontHash) this.resetFont(fontHash);
+				else this.setNewFont(fontHash);
 			},
 			resetFont: function(fontHash){
 				var font = App.Collections.Fonts.find(function(m){
@@ -92,6 +89,7 @@ define(['backbone', 'jqueryUiDraggable'],
 			},
 			setNewWeight: function(weightHash){
 				var fontHash = App.Models.App.get('font');
+				if(!fontHash || fontHash == 'null' || fontHash == null) return;
 				var fontModel = App.Collections.Fonts.findWhere({ hash : fontHash});
 				var weights = fontModel.get('weights');
 				var weight = weights.findWhere({ hash : weightHash});
@@ -105,16 +103,18 @@ define(['backbone', 'jqueryUiDraggable'],
 				$('#heightSelector .dragger').css('left', parseInt(size)/$('#heightSelector .dragger').data('range') * $('#heightSelector').width());
 			},
 			refreshFontName: function(hash){
-				if(!hash) return this.$('#fontTitle').html('Select font');
-				App.Models.App.set('font', hash, {silent: true});
-				var font = App.Collections.Fonts.findWhere({ hash : hash });
+				var weight;
+				var font;
+				if(!hash) return this.resetFontWeightSelectors();
+				window.App.Collections.Fonts.each(function(f){
+					w = f.get('weights').findWhere({ familyName : hash });
+					if(w){
+						weight = w;
+						font = f;
+					}
+				});
+				App.Models.App.set('font', font.get('hash'), {silent: true});
 				this.$('#fontTitle').html(font.get('name'));
-			},
-			refreshWeightName: function(hash){
-				if(!hash) return this.$('#weightTitle').html('Weight / Style');
-				App.Models.App.set('weight', hash, {silent: true});
-				var font = App.Collections.Fonts.findWhere({ hash : App.Models.App.get('font') });
-				var weight = font.get('weights').findWhere({ hash : hash });
 				this.$('#weightTitle').html(weight.get('name'));
 			},
 			resetFontWeightSelectors: function(){

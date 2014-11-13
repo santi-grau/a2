@@ -80,10 +80,10 @@ define(['backbone', 'collections/Weights'],
 				weights.each(_.bind(function(weightModel){
 					var familyName = [];
 					$.parseJSON(weightModel.get('files')).woff.forEach(function(fontFile){
-						familyName.push( '"f' + fontFile.split('.')[0] + '"' );
+						familyName.push( 'f' + fontFile.split('.')[0] );
 						fontFiles.push(fontFile);
 					});
-					weightModel.set('familyName' , familyName.join(','));
+					weightModel.set('familyName' , familyName.join(', '));
 				},this));
 				var totalFiles = fontFiles.length - 1;
 				var css = [];
