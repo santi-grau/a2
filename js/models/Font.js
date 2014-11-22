@@ -17,7 +17,8 @@ define(['backbone', 'collections/Weights'],
 				loading : false,
 				loaded : 0,
 				heightRatio : null,
-				order: 0
+				order: 0,
+				def: null
 			},
 			initialize: function(){
 				this.set('weights', new Weights(this.get('weights')));

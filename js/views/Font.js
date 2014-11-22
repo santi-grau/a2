@@ -17,6 +17,7 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
 				this.model.on('change:loading', this.updateLoading, this);
+				this.model.on('change:def', this.updateDefault, this);
 				this.model.get('weights').on('add', this.addWeight, this);
 				this.model.get('weights').on('destroy', this.removedWeight, this);
 				this.$('.sortable.weights').sortable({
@@ -33,9 +34,15 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 				else this.$('.status').addClass('btn-default').removeClass('btn-success');
 			},
 			changeDefault: function(){
-				this.model.get('weights').each(function(model){
+				window.App.Collections.Fonts.each(function(model){
 					model.set('def', false);
-				});
+				})
+				this.model.set('def', true);
+				window.App.Collections.Fonts.sync();
+			},
+			updateDefault: function(model, attr){
+				if(attr) this.$('.def').removeClass('btn-default').addClass('btn-primary');
+				else this.$('.def').addClass('btn-default').removeClass('btn-primary');
 			},
 			edit: function(){
 				new Settings({ model : this.model});

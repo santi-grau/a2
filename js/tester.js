@@ -80,7 +80,10 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 				this.Views.Options.fix(scrollTop > $('#content').offset().top);
 			},
 			dataReady: function(data){
-				var defFont = data[0].hash;
+				var defFont;
+				$.each(data, function(i,j){
+					if(j.def) return defFont = j.hash;
+				})
 				if(window.location.hash) defFont = window.location.hash.substring(1);
 				this.Models.App = new Appmodel();
 				this.Models.App.set('defFont', defFont);

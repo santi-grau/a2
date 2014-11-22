@@ -42,6 +42,7 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 						buypage : j.buypage,
 						heightRatio : j.defHeight / j.defSize,
 						order : j.order,
+						def : j.def,
 						status: j.status
 					});
 					model.get('weights').add(j.weights)
