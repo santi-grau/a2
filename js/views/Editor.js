@@ -19,7 +19,7 @@ define(['backbone', 'quill', 'color'],
 				this.setQuill();
 			},
 			cacheFont: function(font){
-				
+				var dummy = $('<span style="font-family:'+font['font-family']+';">&nbsp;</span>').appendTo($(this.quill.root).parent());
 			},
 			setQuill: function(){
 				this.range = {};
@@ -65,7 +65,6 @@ define(['backbone', 'quill', 'color'],
 				}, this), 1000)
 			},
 			saveEditor: function(){
-				//console.log(this.quill)
 				localStorage.setItem("editor", this.quill.getContents());
 			},
 			blur: function(){
@@ -118,11 +117,13 @@ define(['backbone', 'quill', 'color'],
 			setStyles: function(model){
 				var css = model.get('css');
 				css.forEach(_.bind(function(style, i) {
+					var font = {
+						'font-family' : css[i]['font-family'],
+						'src' : css[i].src + " format('woff')"
+					}
+					this.cacheFont(font);
 					this.quill.addStyles({
-						'@font-face' : {
-							'font-family' : css[i]['font-family'],
-							'src' : css[i].src + " format('woff')"
-						}
+						'@font-face' : font
 					});
 				}, this));
 				this.setFont(null, model.get('hash'))

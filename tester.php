@@ -105,9 +105,9 @@
 			</defs>
 		</svg>
 		<?php  if (strpos('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'],'a2.local') !== false) { ?>
-			<script src="js/libs/requirejs/require.js" data-main="js/tester.js"></script>
+			<script src="http://a2.local/js/libs/requirejs/require.js" data-main="http://a2.local/js/tester.js"></script>
 		<?php }else{ ?>
-			<script src="build/tester.js"></script>
+			<script src="http://a2-type.co.uk/typetester/build/tester.js"></script>
 		<?php } ?>
 	</body>
 </html>
