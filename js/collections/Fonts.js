@@ -20,8 +20,12 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 					url: "fonts.php",
 					data: {action: 'updateData', data : JSON.stringify(this)},
 					success: function(data){
+						setTimeout(function(){
+							$('#saving').removeClass('active');
+						}, 200)
 					}
 				});
+				$('#saving').addClass('active');
 			},
 			updatePositions: function(positions){
 				_.each(positions, _.bind(function(position){
@@ -31,7 +35,6 @@ define(['backbone', 'models/Font', 'collections/Weights'],
 			},
 			setFonts: function(data){
 				$.each(data, _.bind(function(i,j){
-					if(!j.status) return;
 					var model = this.add({
 						name : j.name,
 						hash : j.hash,

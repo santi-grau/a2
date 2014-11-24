@@ -18,7 +18,8 @@ define(['backbone', 'collections/Weights'],
 				loaded : 0,
 				heightRatio : null,
 				order: 0,
-				def: null
+				def: null,
+				status: false
 			},
 			initialize: function(){
 				this.set('weights', new Weights(this.get('weights')));
@@ -85,7 +86,7 @@ define(['backbone', 'collections/Weights'],
 						familyName.push( 'f' + fontFile.split('.')[0] );
 						fontFiles.push(fontFile);
 					});
-					weightModel.set('familyName' , familyName.join(', '));
+					weightModel.set('familyName' , familyName.join(', ') + ', serif');
 				},this));
 				var totalFiles = fontFiles.length - 1;
 				var css = [];

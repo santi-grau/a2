@@ -101,7 +101,7 @@ require(['backbone', 'collapsible', 'transition', 'dropdown', 'jqueryUiSortable'
 					name : 'New Font',
 					hash : 'new_font_' + (new Date).getTime(),
 					defSize : 140,
-					defHeight : 120,
+					defHeight : 140,
 					order: -1
 				});
 				var dt = e.originalEvent.dataTransfer;

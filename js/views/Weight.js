@@ -10,19 +10,23 @@ define(['backbone'],
 				'click .delete': 'deleteRequest',
 				'keyup .weightName' : 'stopTyping'
 			},
-			initialize: function(){
+			initialize: function(data){
+				this.parent = data.parent;
 				this.model.on('change:status', this.updateStatus, this);
 				this.model.on('change:def', this.updateDefault, this);
 				this.model.on('destroy', this.removeWeight, this);
 			},
 			changeStatus: function(){
+				if(this.model.get('status') && this.model.get('def')) return alert('Cannot disable default weight');
 				this.model.set('status', !this.model.get('status'));
 			},
 			changeDefault: function(){
-				_.defer(_.bind(function(){
-					this.model.set('def', true);
-					window.App.Collections.Fonts.sync();
-				},this))
+				if(!this.model.get('status')) return alert('Cannot make default a disabled weight');
+				this.parent.model.get('weights').each(function(model){
+					model.set('def', false);
+				});
+				this.model.set('def', true);
+				window.App.Collections.Fonts.sync();
 			},
 			updateStatus: function(model, attr){
 				if(attr) this.$('.status').removeClass('btn-default').addClass('btn-success');
@@ -71,7 +75,7 @@ define(['backbone'],
 			},
 			saveName: function(){
 				this.model.set('name', this.$('.weightName').val());
-				this.model.set('hash', this.stripVowelAccent(this.$('.weightName').val()));
+				this.model.set('hash', this.stripVowelAccent(this.$('.weightName').val()).toLowerCase());
 				window.App.Collections.Fonts.sync();
 			}
 		});

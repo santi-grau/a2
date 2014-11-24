@@ -12,7 +12,7 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 				'dragover' : 'dragover',
 				'dragleave' : 'dragleave',
 				'keyup .fontName' : 'stopTyping',
-				'click .def': 'changeDefault'
+				'click .def:eq(0)': 'changeDefault'
 			},
 			initialize: function(){
 				this.model.on('change:status', this.updateStatus, this);
@@ -27,6 +27,7 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 				});
 			},
 			changeStatus: function(){
+				if(this.model.get('status') && this.model.get('def')) return alert('Cannot disable default font');
 				this.model.set('status', !this.model.get('status'));
 			},
 			updateStatus: function(model, attr){
@@ -34,6 +35,7 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 				else this.$('.status').addClass('btn-default').removeClass('btn-success');
 			},
 			changeDefault: function(){
+				if(!this.model.get('status')) return alert('Cannot make default a disabled font');
 				window.App.Collections.Fonts.each(function(model){
 					model.set('def', false);
 				})
@@ -41,8 +43,8 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 				window.App.Collections.Fonts.sync();
 			},
 			updateDefault: function(model, attr){
-				if(attr) this.$('.def').removeClass('btn-default').addClass('btn-primary');
-				else this.$('.def').addClass('btn-default').removeClass('btn-primary');
+				if(attr) this.$('.def:eq(0)').removeClass('btn-default').addClass('btn-primary');
+				else this.$('.def:eq(0)').addClass('btn-default').removeClass('btn-primary');
 			},
 			edit: function(){
 				new Settings({ model : this.model});
@@ -94,7 +96,7 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 			addWeight: function(model){
 				var weightPartial = _.template(WeightView);
 				var weightView = $(weightPartial({ data : model.toJSON() }));
-				var weight = new Weight({ model : model, el : $(weightView).appendTo(this.$('.weights')) });
+				var weight = new Weight({ parent: this, model : model, el : $(weightView).appendTo(this.$('.weights')) });
 				this.$('.badge').html(this.model.get('weights').length);
 				this.$el.removeClass('empty');
 				this.$el.removeClass('loading');

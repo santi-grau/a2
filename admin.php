@@ -10,6 +10,7 @@
 		<link rel="stylesheet" id="mainStylesheet" href="css/admin.css">
 	</head>
 	<body>
+		<div id="saving">Saving data...</div>
 		<div id="header">
 			<div id="heart" class=""></div>
 		</div>
