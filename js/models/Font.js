@@ -93,10 +93,12 @@ define(['backbone', 'collections/Weights'],
 				$.each(fontFiles, _.bind(function(i,j){
 					$.ajax({ 
 						url:"fonts/"+j, success: _.bind(function(data){
-							css.push({
-								'font-family' : '"f' + j.split('.')[0] +'"',
+							var fontData = {
+								'font-family' : 'f' + j.split('.')[0] +'',
 								'src' : "url('" + data + "')"
-							})
+							}
+							css.push(fontData);
+							window.App.Views.Editor.cacheFont(fontData);
 							if(totalFiles > 0) totalFiles--;
 							else return this.buildFont(css);
 							this.set({

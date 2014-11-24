@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!-- ────────────────────────────────────────────────────────────────────
  __                            __                   __                   
 /\ \__                        /\ \__               /\ \__                
@@ -97,6 +97,13 @@
 				A2 Typetester is for testing the A2 Library fonts online only. You are not permitted to use any of the specimens you create in the A2 Typetester for commercial work; printed or digital, or in any way publish our fonts as part of your, or your clients design. All rights reserved © A2-TYPE
 			</p>
 		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<defs>
+				<filter id="wherearemyglasses" x="0" y="0">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+				</filter>
+			</defs>
+		</svg>
 		<?php  if (strpos('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'],'a2.local') !== false) { ?>
 			<script src="js/libs/requirejs/require.js" data-main="js/tester.js"></script>
 		<?php }else{ ?>

@@ -18,6 +18,9 @@ define(['backbone', 'quill', 'color'],
 				window.App.Collections.Fonts.on('change:loading', this.loadFont, this);
 				this.setQuill();
 			},
+			cacheFont: function(font){
+				
+			},
 			setQuill: function(){
 				this.range = {};
 				this.quill = new Quill('#editor',{
@@ -62,14 +65,14 @@ define(['backbone', 'quill', 'color'],
 				}, this), 1000)
 			},
 			saveEditor: function(){
-				console.log(this.quill)
+				//console.log(this.quill)
 				localStorage.setItem("editor", this.quill.getContents());
 			},
 			blur: function(){
 				this.quill.setSelection(0,0);
 			},
 			setNewText: function(delta, source){
-				if(localStorage.getItem("editor")) console.log(localStorage.getItem("editor"))
+				//if(localStorage.getItem("editor")) console.log(localStorage.getItem("editor"))
 				$.each(this.quill.editor.doc.lineMap, _.bind(function(index, line){
 					if(this.quill.editor.doc.lines.length > 1 && $(line.node).text() == ''){
 						var ops = line.prev.delta.ops;
