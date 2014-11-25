@@ -1,3 +1,12 @@
+<?php
+	if (strpos('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'],'a2.local') !== false) {
+		$env = 'dev';
+		$basePath = "http://a2.local/";
+	}else{
+		$env = 'pro';
+		$basePath = "http://a2-type.co.uk/typetester/";
+	}
+?>
 <!DOCTYPE html>
 <!-- ────────────────────────────────────────────────────────────────────
  __                            __                   __                   
@@ -104,10 +113,14 @@
 				</filter>
 			</defs>
 		</svg>
-		<?php  if (strpos('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'],'a2.local') !== false) { ?>
-			<script src="http://a2.local/js/libs/requirejs/require.js" data-main="http://a2.local/js/tester.js"></script>
+		<script>
+			var basePath = '<?php echo $basePath; ?>';
+			var env = '<?php echo $env; ?>';
+		</script>
+		<?php if ($env == 'dev') { ?>
+			<script src="<?php echo $basePath; ?>js/libs/requirejs/require.js" data-main="<?php echo $basePath; ?>js/tester.js"></script>
 		<?php }else{ ?>
-			<script src="http://a2-type.co.uk/typetester/build/tester.js"></script>
+			<script src="<?php echo $basePath; ?>build/tester.js"></script>
 		<?php } ?>
 	</body>
 </html>

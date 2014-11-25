@@ -61,7 +61,7 @@ require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collecti
 			Collections: {},
 			el : window,
 			initialize: function(){
-				$.getJSON('data.json', _.bind(this.dataReady, this));
+				$.getJSON(basePath + 'data.json', _.bind(this.dataReady, this));
 				this.$el.bind('scroll', _.bind(this.scrollCheck, this));
 				$(window).bind('resize', _.bind(function(e){
 					_.each(this.Views, function(view, index){

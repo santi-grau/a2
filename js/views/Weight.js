@@ -51,7 +51,7 @@ define(['backbone'],
 				this.model.destroy();
 				$.ajax({
 					type: "POST",
-					url: "fonts.php",
+					url: basePath + "fonts.php",
 					data: {action: 'deleteWeights', data : weights}
 				});
 			},

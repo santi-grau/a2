@@ -22,6 +22,7 @@ define(['backbone', 'jqueryUiDraggable'],
 			},
 			dragStop: function(){
 				App.Views.Editor.setNewText();
+				window.App.Views.Editor.saveEditor();
 			},
 			addFontMenuItem: function(font){
 				var fontPartial = _.template(App.Models.App.get('font_partial'));

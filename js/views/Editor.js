@@ -65,13 +65,16 @@ define(['backbone', 'quill', 'color'],
 				}, this), 1000)
 			},
 			saveEditor: function(){
-				localStorage.setItem("editor", this.quill.getContents());
+				var data = {
+					app : window.App.Models.App.toJSON(),
+					content : this.quill.getContents()
+				}
+				localStorage.setItem("_a2_font_tester_" + window.App.Models.App.get('defFont'), JSON.stringify(data));
 			},
 			blur: function(){
 				this.quill.setSelection(0,0);
 			},
 			setNewText: function(delta, source){
-				//if(localStorage.getItem("editor")) console.log(localStorage.getItem("editor"))
 				$.each(this.quill.editor.doc.lineMap, _.bind(function(index, line){
 					if(this.quill.editor.doc.lines.length > 1 && $(line.node).text() == ''){
 						var ops = line.prev.delta.ops;
@@ -86,8 +89,26 @@ define(['backbone', 'quill', 'color'],
 				$('#content').height(Math.max(parseInt(height) + parseInt(top) + 100, 600));
 				this.saveEditor();
 			},
+			setFromLocalStorage: function(){
+				this.origImg = 155;
+				var data = $.parseJSON(localStorage.getItem("_a2_font_tester_" + window.App.Models.App.get('defFont')));
+				this.quill.setContents(data.content);
+				window.App.Models.App.set('size', data.app.size || 140);
+				window.App.Models.App.set('height', data.app.height || 140);
+				this.origSize = 140;
+				this.origHeight = 140;
+				window.App.Models.App.set('heightRatio', data.app.heightRatio || 1);
+				window.App.Views.Toolbar.refreshSizeHanlder(window.App.Models.App.get('size'));
+				window.App.Views.Toolbar.refreshHeightHanlder(window.App.Models.App.get('height'));
+				this.quill.addStyles({
+					'img' : {
+						'width' : this.origImg * (window.App.Models.App.get('size')/this.origSize) + 'px'
+					}
+				});
+			},
 			setContent: function(model){
 				var defFont = window.App.Models.App.get('defFont');
+				if(localStorage.getItem("_a2_font_tester_" + defFont)) return this.setFromLocalStorage();
 				var font = window.App.Collections.Fonts.findWhere({ hash : defFont });
 				var weight = font.get('weights').findWhere({def:true});
 				var familyName = weight.get('familyName');

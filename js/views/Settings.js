@@ -49,7 +49,7 @@ define(['backbone', 'quill', 'color', 'text!partials/admin_settings.js'],
 				$.each(fontFiles, _.bind(function(i,j){
 					fontFamily += 'f' + j.split('.')[0];
 					$.ajax({ 
-						async:false, url:"fonts/"+j, success: _.bind(function(data){
+						async:false, url: basePath + "fonts/"+j, success: _.bind(function(data){
 							this.quill.addStyles({
 								'@font-face' : {
 									'font-family' : '"f' + j.split('.')[0] +'"',

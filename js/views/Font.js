@@ -74,7 +74,7 @@ define(['backbone', 'text!partials/admin_weight.js', 'views/Weight', 'views/Sett
 				this.model.destroy();
 				$.ajax({
 					type: "POST",
-					url: "fonts.php",
+					url: basePath + "fonts.php",
 					data: {action: 'deleteWeights', data : weights}
 				});
 			},
