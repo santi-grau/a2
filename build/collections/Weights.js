@@ -1,1 +1,0 @@
-define(["backbone","models/Weight"],function(e,t){var n=e.Collection.extend({model:t,comparator:"order",initialize:function(){this.on("destroy change:status",window.App.Collections.Fonts.sync,window.App.Collections.Fonts)}});return n});
