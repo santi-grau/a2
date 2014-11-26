@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 					'./.ftppass',
 					'./.gitignore',
 					'./bower.json',
-					// './data.json',
+					'./data.json',
 					'./Gruntfile.js',
 					'./package.json'
 				],
