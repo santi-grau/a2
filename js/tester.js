@@ -38,6 +38,14 @@ require.config({
 				'jqueryUiMouse',
 				'jqueryUiCore'
 			]
+		},
+		jqueryPunch: {
+			deps: [
+				'jquery',
+				'jqueryUiCore',
+				'jqueryUiMouse',
+				'jqueryUiDraggable'
+			]
 		}
 	},
 	paths: {
@@ -50,7 +58,8 @@ require.config({
 		backbone: 'libs/backbone/backbone',
 		text: 'libs/text/text',
 		quill: 'libs/quill/dist/quill',
-		color: 'libs/color/one-color'
+		color: 'libs/color/one-color',
+		jqueryPunch: 'libs/jquery-ui-touch-punch/jquery.ui.touch-punch.min'
 	}
 });
 require(['models/App', 'views/Toolbar','views/Editor','views/Options', 'collections/Fonts'],

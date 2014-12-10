@@ -1,8 +1,8 @@
 // ┌────────────────────────────────────────────────────────────────────┐
 // | Toolbar.js
 // └────────────────────────────────────────────────────────────────────┘
-define(['backbone', 'jqueryUiDraggable'],
-	function(Backbone, draggable){
+define(['jquery','backbone', 'jqueryUiDraggable', 'jqueryPunch'],
+	function($, Backbone, draggable){
 		var Toolbar = Backbone.View.extend({
 			events: {
 				'mousedown #fontSelector > ul > li > a' : 'selectFont',
