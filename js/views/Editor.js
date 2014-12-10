@@ -19,7 +19,7 @@ define(['backbone', 'quill', 'color'],
 				this.setQuill();
 			},
 			cacheFont: function(font){
-				var dummy = $('<span style="font-family:'+font['font-family']+';">&nbsp;</span>').appendTo($(this.quill.root).parent());
+				var dummy = $('<span style="font-family:'+font['font-family']+'; display:none;">&nbsp;</span>').appendTo($(this.quill.root).parent());
 			},
 			setQuill: function(){
 				this.range = {};
@@ -108,7 +108,7 @@ define(['backbone', 'quill', 'color'],
 			},
 			setContent: function(model){
 				var defFont = window.App.Models.App.get('defFont');
-				if(localStorage.getItem("_a2_font_tester_" + defFont)) return this.setFromLocalStorage();
+				//if(localStorage.getItem("_a2_font_tester_" + defFont)) return this.setFromLocalStorage();
 				var font = window.App.Collections.Fonts.findWhere({ hash : defFont });
 				var weight = font.get('weights').findWhere({def:true});
 				var familyName = weight.get('familyName');
